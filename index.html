@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dynamic Perception Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --lime-green: #7dd87d;
+            --magenta: #e76f9a;
+            --cyan: #6fcfe7;
+            --purple: #9a7dd8;
+            --yellow: #e7d86f;
+            --dark-bg: #2a2a3a;
+            --light-bg: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #666;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #fff;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 3px solid var(--cyan);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--cyan), var(--magenta), var(--lime-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            background: var(--cyan);
+            color: white;
+        }
+
+        nav a.active {
+            background: linear-gradient(135deg, var(--cyan), var(--magenta));
+            color: white;
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--cyan);
+            color: var(--cyan);
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--cyan), var(--magenta), var(--lime-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            border-left: 5px solid var(--cyan);
+            padding-left: 1.5rem;
+        }
+
+        /* Research Areas */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .research-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--cyan);
+        }
+
+        .research-card:nth-child(2) {
+            border-top-color: var(--magenta);
+        }
+
+        .research-card:nth-child(3) {
+            border-top-color: var(--lime-green);
+        }
+
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .research-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--cyan), var(--magenta));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .research-card:nth-child(2) .research-icon {
+            background: linear-gradient(135deg, var(--magenta), var(--purple));
+        }
+
+        .research-card:nth-child(3) .research-icon {
+            background: linear-gradient(135deg, var(--lime-green), var(--yellow));
+        }
+
+        .research-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .research-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 4px solid var(--cyan);
+        }
+
+        .team-member:nth-child(2) img {
+            border-color: var(--magenta);
+        }
+
+        .team-member:nth-child(3) img {
+            border-color: var(--lime-green);
+        }
+
+        .team-member h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .team-member .role {
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Publications */
+        .publication {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--cyan);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .publication:hover {
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+            transform: translateX(5px);
+        }
+
+        .publication h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .publication .authors {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication .journal {
+            color: var(--cyan);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: linear-gradient(135deg, var(--cyan), var(--magenta));
+            padding: 3rem;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .contact-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-email {
+            display: inline-block;
+            background: white;
+            color: var(--cyan);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-email:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: #aaa;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .research-grid,
+            .team-grid,
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Page Visibility */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="header-content">
+        <div class="logo-text">The Dynamic Perception Lab</div>
+        <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul id="menu">
+                <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
+                <li><a href="#" onclick="showPage('people')">People</a></li>
+                <li><a href="#" onclick="showPage('research')">Research</a></li>
+                <li><a href="#" onclick="showPage('publications')">Publications</a></li>
+                <li><a href="#" onclick="showPage('participate')">Participate</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Dynamic Perception Lab</h1>
+            <p>Investigating the mental algorithms that power our seamless interaction with the physical world—from perception to prediction, from vision to action.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="section">
+            <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-light);">
+                <strong>Our seamless interaction with the world is no small feat.</strong> Packing delicate groceries, stacking glassware, reshuffling precariously balanced cans in a cabinet—each action selected and calibrated based on expectations about its physical consequences. In daily life, we continually form implicit, online physical predictions to guide our decisions and actions, and this process can often feel as effortless as the act of seeing.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Our Research Areas</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-icon">🧠</div>
+                    <h3>Intuitive Physics</h3>
+                    <p>We investigate the computational mechanisms that allow us to make split-second assessments of physical structure and dynamics in everyday environments using psychophysics and computational modeling.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">👁️</div>
+                    <h3>Visual Perception</h3>
+                    <p>Our lab studies how visual information transforms into physical understanding, exploring the complete pipeline from perception to action through functional brain imaging.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">⚡</div>
+                    <h3>Physical Prediction</h3>
+                    <p>Understanding how the mind predicts trajectories, stability, and physical outcomes—the brain's physics engine that guides our interactions with dynamic environments.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Dynamic Perception in Action</h2>
+            <div class="image-grid">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect fill='%236fcfe7' width='300' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='16' dy='.3em'%3Efire-water.jpg%3C/text%3E%3C/svg%3E" alt="Research Image 1">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect fill='%23e76f9a' width='300' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='16' dy='.3em'%3Etennis-splash.jpg%3C/text%3E%3C/svg%3E" alt="Research Image 2">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect fill='%237dd87d' width='300' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='16' dy='.3em'%3Epool-table.jpg%3C/text%3E%3C/svg%3E" alt="Research Image 3">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect fill='%239a7dd8' width='300' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='16' dy='.3em'%3Eballs-stairs.jpg%3C/text%3E%3C/svg%3E" alt="Research Image 4">
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- PEOPLE PAGE -->
+<div id="people" class="page">
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%236fcfe7'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='14' dy='.3em'%3EMember 1%3C/text%3E%3C/svg%3E" alt="Team Member 1">
+                    <h3>Dr. Jason Fischer</h3>
+                    <div class="role">Principal Investigator</div>
+                    <p>Leading research in intuitive physics and visual cognition, exploring how the brain constructs physical understanding from perception.</p>
+                </div>
+                <div class="team-member">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%23e76f9a'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='14' dy='.3em'%3EMember 2%3C/text%3E%3C/svg%3E" alt="Team Member 2">
+                    <h3>Postdoctoral Researcher</h3>
+                    <div class="role">Computational Modeling</div>
+                    <p>Developing neural models of physical scene understanding and predictive processing mechanisms.</p>
+                </div>
+                <div class="team-member">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Ccircle cx='75' cy='75' r='75' fill='%237dd87d'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='14' dy='.3em'%3EMember 3%3C/text%3E%3C/svg%3E" alt="Team Member 3">
+                    <h3>PhD Student</h3>
+                    <div class="role">Cognitive Neuroscience</div>
+                    <p>Investigating brain mechanisms of physical prediction and dynamic visual perception.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Join Our Team</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                We're seeking brilliant minds passionate about understanding how perception shapes our physical reality. If you're fascinated by the intersection of vision, cognition, and intuitive physics, we want to hear from you. Check our opportunities or reach out directly to explore collaboration possibilities.
+            </p>
+        </section>
+    </div>
+</div>
+
+<!-- RESEARCH PAGE -->
+<div id="research" class="page">
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Research</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+                <strong>What are the mental algorithms that allow us to make split-second assessments of the physical structure and dynamics of our everyday environments?</strong> How are they situated within the broader landscapes of perception and cognition?
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                Our lab studies the architecture of the intuitive physics system in the mind and brain using <strong>psychophysics</strong>, <strong>computational modeling</strong>, and <strong>functional brain imaging</strong>. We decode how humans translate visual information into physical understanding—bridging the gap between what we see and what we know about how the world works.
+            </p>
+        </section>
+
+        <section class="section">
+            <div class="image-grid">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect fill='%236fcfe7' width='300' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='14' dy='.3em'%3Ehula-hoop.jpg%3C/text%3E%3C/svg%3E" alt="Research">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect fill='%23e76f9a' width='300' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='14' dy='.3em'%3Ekayak-reflection.jpg%3C/text%3E%3C/svg%3E" alt="Research">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect fill='%237dd87d' width='300' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='14' dy='.3em'%3Ewater-drop.jpg%3C/text%3E%3C/svg%3E" alt="Research">
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Key Research Areas</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <h3>Physical Prediction</h3>
+                    <p>How do we predict that a stack of dishes will topple before it happens? We investigate the computational architecture underlying split-second physical judgments.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Perception to Action</h3>
+                    <p>Understanding the complete pipeline: how visual information transforms into physical knowledge, which then guides real-world actions.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Brain's Physics Engine</h3>
+                    <p>Exploring how tool representation, intuitive physics, and action planning converge in neural systems.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- PUBLICATIONS PAGE -->
+<div id="publications" class="page">
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Publications</h2>
+            
+            <div class="publication">
+                <h3>The building blocks of intuitive physics in the mind and brain</h3>
+                <div class="authors">Jason Fischer</div>
+                <div class="journal">Cognitive Neuropsychology, 2022</div>
+                <p>A comprehensive framework for understanding how the brain constructs physical intuitions from perceptual building blocks.</p>
+            </div>
+
+            <div class="publication">
+                <h3>What tool representation, intuitive physics, and action have in common: The brain's first-person physics engine</h3>
+                <div class="authors">Jason Fischer & Bradford Z. Mahon</div>
+                <div class="journal">Cognitive Neuropsychology, 2022</div>
+                <p>Revealing how the brain integrates tool knowledge with physical simulation to plan actions.</p>
+            </div>
+
+            <div class="publication">
+                <h3>A role for visual areas in physics simulations</h3>
+                <div class="authors">Aarit Ahuja, Theresa M. Desrochers & David L. Sheinberg</div>
+                <div class="journal">Cognitive Neuropsychology, 2022</div>
+                <p>Evidence that visual cortex actively participates in mental physics simulations.</p>
+            </div>
+
+            <div class="publication">
+                <h3>Partial mental simulation explains fallacies in physical reasoning</h3>
+                <div class="authors">Ilona Bass, Kevin A. Smith, Elizabeth Bonawitz & Tomer D. Ullman</div>
+                <div class="journal">Cognitive Neuropsychology, 2022</div>
+                <p>Why we sometimes get physics wrong—and what it reveals about our mental models.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Special Issue</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                <strong>Intuitive Physics Within the Landscape of the Mind</strong> — A special issue in <em>Cognitive Neuropsychology</em> guest edited by Jason Fischer, exploring how physical understanding fits within broader cognitive architecture.
+            </p>
+        </section>
+    </div>
+</div>
+
+<!-- PARTICIPATE PAGE -->
+<div id="participate" class="page">
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Participate in Our Research</h2>
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 3rem;">
+                Your participation directly advances our understanding of one of the mind's most fascinating capabilities—how we effortlessly navigate and predict the physical world around us.
+            </p>
+
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-icon">🔬</div>
+                    <h3>Why Participate?</h3>
+                    <p>Contribute to cutting-edge cognitive science research and gain exclusive insight into how your brain makes sense of physics.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">⏱️</div>
+                    <h3>What to Expect</h3>
+                    <p>View dynamic scenes, make intuitive judgments, engage with innovative experiments. Sessions typically last 30-60 minutes.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">💰</div>
+                    <h3>Compensation</h3>
+                    <p>Receive course credit or monetary compensation, plus a summary of research findings showing how your data contributes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="contact-box">
+                <h2>Get Involved</h2>
+                <p>Ready to contribute to groundbreaking research?</p>
+                <a href="mailto:participate@dynamicperceptionlab.com" class="contact-email">participate@dynamicperceptionlab.com</a>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 The Dynamic Perception Lab. All rights reserved.</p>
+    <p>Johns Hopkins University</p>
+</footer>
+
+<script>
+    function showPage(pageId) {
+        // Hide all pages
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+        });
+        
+        // Show selected page
+        document.getElementById(pageId).classList.add('active');
+        
+        // Update active link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+        });
+        event.target.classList.add('active');
+        
+        // Scroll to top
+        window.scrollTo({top: 0, behavior: 'smooth'});
+        
+        // Close mobile menu
+        document.getElementById('menu').classList.remove('active');
+    }
+
+    function toggleMenu() {
+        document.getElementById('menu').classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
