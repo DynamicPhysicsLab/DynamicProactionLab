@@ -713,48 +713,26 @@ f<!DOCTYPE html>
         /* CSS AGGIUNTIVO - Aggiungi questo DENTRO il tag <style> (prima di </style>) */
     }
 }
-    /* Video Divider Section */
+   /* Video Hero Banner */
 .video-divider {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 70vh;
     overflow: hidden;
-    margin: 60px 0;
+    margin: 0;
+    padding: 0;
 }
 
 .video-divider video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.7);
-}
-
-.video-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    z-index: 10;
-    width: 90%;
-    max-width: 800px;
-}
-
-.video-overlay h3 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-    line-height: 1.4;
+    filter: brightness(0.8) saturate(0.5);
 }
 
 @media (max-width: 768px) {
     .video-divider {
-        height: 250px;
-    }
-    
-    .video-overlay h3 {
-        font-size: 1.5rem;
+        height: 50vh;
     }
 }
     </style>
