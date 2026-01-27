@@ -705,12 +705,10 @@
 .video-divider {
     position: relative;
     width: 100%;
-    max-width: 1200px;
     height: 30vh;
     overflow: hidden;
-    margin: 0 auto;
-    padding: 0 2rem;
-    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .video-divider video {
@@ -724,48 +722,46 @@
 /* Logo sotto video (allineato al contenuto) */
 .logo-center {
     width: 100%;
-    max-width: 1200px;
     text-align: center;
-    padding: 60px 2rem;
+    padding: 60px 0;
     background: transparent;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .logo-center img {
-    max-width: 400px;
-    width: 80%;
+    max-width: 450px;
+    width: 85%;
     height: auto;
     display: block;
     margin: 0 auto;
     filter: drop-shadow(0 4px 20px rgba(125, 216, 125, 0.5));
 }
 
-@media (max-width: 768px) {
-    .logo-center {
-        padding: 40px 20px;
-    }
-    
-    .logo-center img {
-        max-width: 250px;
-    }
-}
-    /* Video nelle altre pagine (più basso) */
+/* Video più basso nelle altre pagine */
 #people .video-divider,
 #research .video-divider,
 #publications .video-divider {
-    height: 30vh;
+    height: 20vh;
 }
 
+/* Responsive Mobile */
 @media (max-width: 768px) {
+    .video-divider {
+        height: 25vh;
+    }
+    
+    .logo-center {
+        padding: 40px 0;
+    }
+    
+    .logo-center img {
+        max-width: 280px;
+    }
+    
     #people .video-divider,
     #research .video-divider,
     #publications .video-divider {
-        height: 25vh;
-    }
-}
-@media (max-width: 768px) {
-    .video-divider {
-        height: 50vh;
+        height: 18vh;
     }
 }
     </style>
@@ -787,13 +783,7 @@
         </nav>
     </div>
 </header>
-
-
-Home page completa · HTML
-Copy
-
-<!-- HOME PAGE COMPLETA - Sostituisci TUTTA la sezione HOME (circa riga 759-820) -->
-
+    
 <!-- HOME PAGE -->
 <div id="home" class="page active">
     <!-- Video FUORI dal container (full-width) -->
