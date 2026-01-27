@@ -716,18 +716,27 @@
     object-fit: cover;
     filter: brightness(0.75) saturate(0.4) contrast(1.05);
 }
-/* Logo Overlay sul Video */
+/* Logo centrato sotto video */
+.logo-center {
+    text-align: center;
+    padding: 50px 20px;
+    background: #3a3a3a;
+}
 
-.logo-overlay img {
-    max-width: 320px;
-    width: 80%;
+.logo-center img {
+    max-width: 350px;
+    width: 85%;
     height: auto;
-    filter: drop-shadow(0 4px 20px rgba(125, 216, 125, 0.6));
+    filter: drop-shadow(0 4px 20px rgba(125, 216, 125, 0.5));
 }
 
 @media (max-width: 768px) {
-    .logo-overlay img {
-        max-width: 200px;
+    .logo-center {
+        padding: 35px 20px;
+    }
+    
+    .logo-center img {
+        max-width: 230px;
     }
 }
 @media (max-width: 768px) {
@@ -762,7 +771,10 @@
             <source src="hero-video.mp4" type="video/mp4">
         </video>
     </section>
-    
+    <!-- Logo centrato sotto video -->
+    <div class="logo-center">
+        <img src="lab-logo-transparent.png" alt="Dynamic Perception Lab">
+    </div>
     <div class="container">
         <section class="section">
             <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0;">
