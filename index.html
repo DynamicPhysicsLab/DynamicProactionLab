@@ -51,8 +51,7 @@
         .logo-text {
             font-size: 1.8rem;
             font-weight: bold;
-            background: linear-gradient(135deg, var(--cyan), var(--magenta), var(--lime-green));
-            -webkit-background-clip: text;
+            background: linear-gradient(135deg, var(--cyan), var(--white));
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
@@ -421,29 +420,6 @@
                 transform: translateY(0);
             }
         }
-        /* Hero Logo */
-.hero-logo {
-  text-align: center;
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.hero-logo img {
-  max-width: 300px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
-.hero-logo h1 {
-  font-size: 2.5em;
-  margin: 20px 0 10px 0;
-  color: #2c3e50;
-}
-
-.hero-logo p {
-  font-size: 1.2em;
-  color: #7f8c8d;
-}
         /* STILI SEZIONE TEAM - Aggiungi questo CSS dentro il tag <style> */
 
 /* Sezione Team - Container principale */
@@ -723,7 +699,28 @@
     object-fit: cover;
     filter: brightness(0.75) saturate(0.4) contrast(1.05);
 }
+/* Logo Overlay sul Video */
+.logo-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+}
 
+.logo-overlay img {
+    max-width: 400px;
+    width: 80%;
+    height: auto;
+    filter: drop-shadow(0 4px 20px rgba(0, 217, 255, 0.5));
+}
+
+@media (max-width: 768px) {
+    .logo-overlay img {
+        max-width: 250px;
+    }
+}
 @media (max-width: 768px) {
     .video-divider {
         height: 50vh;
@@ -732,9 +729,6 @@
     </style>
 </head>
 <body>
-    <section class="hero-logo">
-  <img src="lab-logo-transparent.png" alt="Dynamic Perception Lab">
-</section>
 <!-- Header -->
 <header>
     <div class="header-content">
@@ -753,12 +747,17 @@
 </header>
 
 <!-- HOME PAGE -->
+<!-- HOME PAGE -->
 <div id="home" class="page active">
     <section class="video-divider">
         <video autoplay loop muted playsinline>
             <source src="hero-video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <!-- LOGO OVERLAY -->
+        <div class="logo-overlay">
+            <img src="lab-logo-transparent.png" alt="Dynamic Perception Lab">
+        </div>
     </section>
     <section class="hero">
         <div class="hero-content">
