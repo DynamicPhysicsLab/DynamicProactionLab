@@ -701,13 +701,13 @@
     .alumni-grid {
         grid-template-columns: 1fr;
     }
+/* Video Banner Full-Width */
 .video-divider {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 45vh;
     overflow: hidden;
     margin: 0;
-    margin-left: calc(-50vw + 50%);
     padding: 0;
 }
 
@@ -717,28 +717,46 @@
     object-fit: cover;
     filter: brightness(0.75) saturate(0.4) contrast(1.05);
 }
-/* Logo centrato sotto video */
-    /* Logo centrato sotto video */
+
+ /* Logo Centrato */
 .logo-center {
+    width: 100%;
     text-align: center;
-    padding: 50px 20px;
+    padding: 60px 20px;
     background: #3a3a3a;
+    margin: 0;
 }
 
 .logo-center img {
-    max-width: 350px;
-    width: 85%;
+    max-width: 400px;
+    width: 80%;
     height: auto;
+    display: block;
+    margin: 0 auto;
     filter: drop-shadow(0 4px 20px rgba(125, 216, 125, 0.5));
 }
 
 @media (max-width: 768px) {
     .logo-center {
-        padding: 35px 20px;
+        padding: 40px 20px;
     }
     
     .logo-center img {
-        max-width: 230px;
+        max-width: 250px;
+    }
+}
+    /* Video nelle altre pagine (più basso) */
+#people .video-divider,
+#research .video-divider,
+#publications .video-divider {
+    height: 30vh;
+}
+
+@media (max-width: 768px) {
+    #people .video-divider,
+    #research .video-divider,
+    #publications .video-divider {
+        height: 25vh;
     }
 }
 @media (max-width: 768px) {
@@ -766,45 +784,56 @@
     </div>
 </header>
 
+
+Home page completa · HTML
+Copy
+
+<!-- HOME PAGE COMPLETA - Sostituisci TUTTA la sezione HOME (circa riga 759-820) -->
+
 <!-- HOME PAGE -->
 <div id="home" class="page active">
+    <!-- Video FUORI dal container (full-width) -->
     <section class="video-divider">
         <video autoplay loop muted playsinline>
             <source src="hero-video.mp4" type="video/mp4">
         </video>
     </section>
-    <!-- Logo centrato sotto video -->
+    
+    <!-- Logo centrato FUORI dal container (full-width) -->
     <div class="logo-center">
         <img src="lab-logo-transparent.png" alt="Dynamic Perception Lab">
     </div>
+    
+    <!-- CONTAINER per il contenuto (limitato 1200px) -->
     <div class="container">
         <section class="section">
             <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0;">
                 <strong>Our seamless interaction with the world is no small feat.</strong> Packing delicate groceries, stacking glassware, reshuffling precariously balanced cans in a cabinet—each action selected and calibrated based on expectations about its physical consequences. In daily life, we continually form implicit, online physical predictions to guide our decisions and actions, and this process can often feel as effortless as the act of seeing.
             </p>
         </section>
-         <!-- VIDEO DIVIDER -->
+         
+        <section class="section">
             <h2 class="section-title">Our Research Areas</h2>
             <div class="research-grid">
                 <div class="research-card">
-                <div class="research-icon">
-            <img src="brain-icon.png" alt="Brain">
-        </div>
-                <h3>Intuitive Physics</h3>
+                    <div class="research-icon">
+                        <img src="brain-icon.png" alt="Brain">
+                    </div>
+                    <h3>Intuitive Physics</h3>
                     <p>We investigate the computational mechanisms that allow us to make split-second assessments of physical structure and dynamics in everyday environments using psychophysics and computational modeling.</p>
                 </div>
                 <div class="research-card">
-                <div class="research-icon">
-                <img src="tech-circle-icon.png" alt="Perception">
-            </div>
-                <h3>Visual Perception</h3>
+                    <div class="research-icon">
+                        <img src="tech-circle-icon.png" alt="Perception">
+                    </div>
+                    <h3>Visual Perception</h3>
                     <p>Our lab studies how visual information transforms into physical understanding, exploring the complete pipeline from perception to action through functional brain imaging.</p>
                 </div>
                 <div class="research-card">
-                <div class="research-icon">
-                <img src="dice-icon.png" alt="Prediction">
-            </div>
-                <h3>Physical Prediction</h3>
+                    <div class="research-icon">
+                        <img src="dice-icon.png" alt="Prediction">
+                    </div>
+                    <h3>Physical Prediction</h3>
                     <p>Understanding how the mind predicts trajectories, stability, and physical outcomes—the brain's physics engine that guides our interactions with dynamic environments.</p>
                 </div>
             </div>
@@ -821,71 +850,77 @@
        
     </div>
 </div>
+People page completa · HTML
+Copy
+
+<!-- PEOPLE PAGE COMPLETA - Sostituisci TUTTA la sezione PEOPLE (circa riga 850-950) -->
+
 <!-- PEOPLE PAGE -->
 <div id="people" class="page">
-    <!-- Video banner People -->
+    <!-- Video FUORI dal container (full-width, più basso) -->
     <section class="video-divider">
         <video autoplay loop muted playsinline>
             <source src="people-video.mp4" type="video/mp4">
         </video>
     </section>
     
+    <!-- CONTAINER per il contenuto -->
     <div class="container">
-    <section id="people" class="team-section">
-    <h2>Our Team</h2>
-    
-    <!-- Principal Investigator -->
-    <div class="team-member pi">
-        <img src="jason-fischer.png" alt="Dr. Jason Fischer">
-        <div class="member-info">
-            <h3>Dr. Jason Fischer</h3>
-            <p class="role">Principal Investigator</p>
-            <p class="bio">Leads research at the intersection of visual perception and cognition, with a focus on intuitive physics—the mental systems that allow us to understand and predict physical behavior. His work explores how the brain transforms visual information into physical knowledge that guides everyday interactions with the world.</p>
-        </div>
-    </div>
-
-    <!-- PhD Students -->
-    <div class="team-grid">
-        <div class="team-member">
-            <img src="alex-mitko.png" alt="Alex Mitko">
-            <div class="member-info">
-                <h3>Alex Mitko</h3>
-                <p class="role">PhD Student</p>
-                <p class="bio">Fifth-year doctoral researcher investigating the cognitive architecture underlying intuitive physics. His work examines how the mind performs complex physical judgments without explicit mathematical knowledge—a capability we use effortlessly every day. Beyond the lab, he's an enthusiast of stand-up comedy, football, and hiking.</p>
+        <section id="people" class="team-section">
+            <h2>Our Team</h2>
+            
+            <!-- Principal Investigator -->
+            <div class="team-member pi">
+                <img src="jason-fischer.png" alt="Dr. Jason Fischer">
+                <div class="member-info">
+                    <h3>Dr. Jason Fischer</h3>
+                    <p class="role">Principal Investigator</p>
+                    <p class="bio">Leads research at the intersection of visual perception and cognition, with a focus on intuitive physics—the mental systems that allow us to understand and predict physical behavior. His work explores how the brain transforms visual information into physical knowledge that guides everyday interactions with the world.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="team-member">
-            <img src="giuliana-bucci.png" alt="Giuliana Bucci-Mansilla">
-            <div class="member-info">
-                <h3>Giuliana Bucci-Mansilla</h3>
-                <p class="role">PhD Student</p>
-                <p class="bio">Explores visual dynamics in complex environments and their connection to cognitive processes like decision-making. Her research extends to comparative cognition, examining how different primate species solve physics problems to uncover shared and unique mechanisms across species. She champions ecologically valid experiments to understand real-world brain function and behavior. Outside research, she pursues hiking, camping, rock climbing, and wildlife photography.</p>
-            </div>
-        </div>
-    </div>
+            <!-- PhD Students -->
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="alex-mitko.png" alt="Alex Mitko">
+                    <div class="member-info">
+                        <h3>Alex Mitko</h3>
+                        <p class="role">PhD Student</p>
+                        <p class="bio">Fifth-year doctoral researcher investigating the cognitive architecture underlying intuitive physics. His work examines how the mind performs complex physical judgments without explicit mathematical knowledge—a capability we use effortlessly every day. Beyond the lab, he's an enthusiast of stand-up comedy, football, and hiking.</p>
+                    </div>
+                </div>
 
-    <!-- Master's Students -->
-    <div class="team-grid">
-        <div class="team-member">
-            <img src="garrett-goldin.png" alt="Garrett Goldin">
-            <div class="member-info">
-                <h3>Garrett Goldin</h3>
-                <p class="role">Master's Student</p>
-                <p class="bio">Neuroscience B.S./M.S. student investigating how humans perceive, interpret, and respond to dynamic physical environments. His research focuses on how physical interaction with the world shapes neural processing and predictive capabilities. When not in the lab, he enjoys skiing, ultimate frisbee, and playing guitar, bass, and drums.</p>
+                <div class="team-member">
+                    <img src="giuliana-bucci.png" alt="Giuliana Bucci-Mansilla">
+                    <div class="member-info">
+                        <h3>Giuliana Bucci-Mansilla</h3>
+                        <p class="role">PhD Student</p>
+                        <p class="bio">Explores visual dynamics in complex environments and their connection to cognitive processes like decision-making. Her research extends to comparative cognition, examining how different primate species solve physics problems to uncover shared and unique mechanisms across species. She champions ecologically valid experiments to understand real-world brain function and behavior. Outside research, she pursues hiking, camping, rock climbing, and wildlife photography.</p>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="team-member">
-            <img src="samer-aslan.png" alt="Samer Aslan">
-            <div class="member-info">
-                <h3>Samer Aslan</h3>
-                <p class="role">Master's Student</p>
-                <p class="bio">Computer Science B.S./M.S. student applying deep learning models to physical prediction tasks, bridging artificial intelligence and cognitive science approaches to understanding intuitive physics.</p>
+            <!-- Master's Students -->
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="garrett-goldin.png" alt="Garrett Goldin">
+                    <div class="member-info">
+                        <h3>Garrett Goldin</h3>
+                        <p class="role">Master's Student</p>
+                        <p class="bio">Neuroscience B.S./M.S. student investigating how humans perceive, interpret, and respond to dynamic physical environments. His research focuses on how physical interaction with the world shapes neural processing and predictive capabilities. When not in the lab, he enjoys skiing, ultimate frisbee, and playing guitar, bass, and drums.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <img src="samer-aslan.png" alt="Samer Aslan">
+                    <div class="member-info">
+                        <h3>Samer Aslan</h3>
+                        <p class="role">Master's Student</p>
+                        <p class="bio">Computer Science B.S./M.S. student applying deep learning models to physical prediction tasks, bridging artificial intelligence and cognitive science approaches to understanding intuitive physics.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
         <section class="section">
             <!-- SEZIONE ALUMNI -->
         <section class="alumni-section">
