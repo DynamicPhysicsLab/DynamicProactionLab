@@ -380,25 +380,51 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .mobile-toggle {
-                display: block;
-            }
+    .mobile-toggle {
+        display: block;
+        background: none;
+        border: 2px solid #7dd87d;
+        color: #7dd87d;
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-            nav ul {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                padding: 1rem;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #2a2a2a;
+        padding: 1rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        border-top: 2px solid #7dd87d;
+    }
 
-            nav ul.active {
-                display: flex;
-            }
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 0;
+    }
+    
+    nav ul a {
+        color: #ffffff;
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid #3a3a3a;
+    }
+    
+    nav ul a:hover,
+    nav ul a.active {
+        background: #7dd87d;
+        color: #ffffff;
+    }
+}
 
             .hero h1 {
                 font-size: 2.5rem;
@@ -794,14 +820,14 @@
     
 <!-- HOME PAGE -->
 <div id="home" class="page active">
-    <!-- Video FUORI dal container (full-width) -->
+    <!-- Video FUORI dal container -->
     <section class="video-divider">
         <video autoplay loop muted playsinline>
             <source src="hero-video.mp4" type="video/mp4">
         </video>
     </section>
     
-    <!-- Logo centrato FUORI dal container (full-width) -->
+    <!-- Logo FUORI dal container -->
     <div class="logo-center">
         <img src="lab-logo-transparent.png" alt="Dynamic Perception Lab">
     </div>
@@ -810,7 +836,7 @@
     <div class="container">
         <section class="section">
             <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0;">
-                <strong>Our seamless interaction with the world is no small feat.</strong> Packing delicate groceries, stacking glassware, reshuffling precariously balanced cans in a cabinet—each action selected and calibrated based on expectations about its physical consequences. In daily life, we continually form implicit, online physical predictions to guide our decisions and actions, and this process can often feel as effortless as the act of seeing.
+                <p>Our seamless interaction with the world is no small feat.</p> Packing delicate groceries, stacking glassware, reshuffling precariously balanced cans in a cabinet—each action selected and calibrated based on expectations about its physical consequences. In daily life, we continually form implicit, online physical predictions to guide our decisions and actions, and this process can often feel as effortless as the act of seeing.
             </p>
         </section>
          
