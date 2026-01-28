@@ -735,11 +735,11 @@
 /* Video Centrato Desktop */
 .video-divider {
     position: relative;
-    width: 100%;
-    max-width: 100%;
+    width: 100vw;
     height: 30vh;
     overflow: hidden;
     margin: 0;
+    margin-left: calc(-50vw + 50%);
     padding: 0;
 }
 
@@ -750,54 +750,108 @@
     filter: brightness(0.75) saturate(0.4) contrast(1.05);
 }
 
-/* Logo Centrato Desktop */
+/* Logo CENTRATO (senza limiti) */
 .logo-center {
     width: 100%;
-    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 60px 20px;
+    padding: 60px 0;
     background: transparent;
     margin: 0;
 }
 
 .logo-center img {
-    max-width: 450px;
     width: 450px;
+    max-width: 90%;
     height: auto;
     filter: drop-shadow(0 4px 20px rgba(125, 216, 125, 0.5));
 }
 
-/* Video più basso nelle altre pagine */
-#people .video-divider,
+/* Video PEOPLE stessa altezza della Home */
+#people .video-divider {
+    height: 30vh;  /* ← UGUALE alla Home! */
+}
+
+/* Video Research e Publications più bassi */
 #research .video-divider,
 #publications .video-divider {
     height: 20vh;
 }
 
-/* Responsive Mobile */
+/* ===== RESPONSIVE MOBILE ===== */
+
 @media (max-width: 768px) {
+    .mobile-toggle {
+        display: block;
+        background: none;
+        border: 2px solid #7dd87d;
+        color: #7dd87d;
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #2a2a2a;
+        padding: 1rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        border-top: 2px solid #7dd87d;
+        z-index: 1000;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 0;
+    }
+    
+    nav ul a {
+        color: #ffffff;
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid #3a3a3a;
+    }
+    
+    nav ul a:hover,
+    nav ul a.active {
+        background: #7dd87d;
+        color: #ffffff;
+    }
+    
     .video-divider {
         height: 25vh;
+        margin-left: 0;
+        width: 100%;
     }
     
     .logo-center {
-        padding: 40px 20px;
+        padding: 40px 0;
     }
     
     .logo-center img {
-        max-width: 280px;
         width: 280px;
+        max-width: 90%;
     }
     
-    #people .video-divider,
+    #people .video-divider {
+        height: 25vh;
+    }
+    
     #research .video-divider,
     #publications .video-divider {
         height: 18vh;
     }
 }
-
     </style>
 </head>
 <body>
@@ -808,11 +862,11 @@
         <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
         <nav>
             <ul id="menu">
-                <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
-                <li><a href="#" onclick="showPage('people')">People</a></li>
-                <li><a href="#" onclick="showPage('research')">Research</a></li>
-                <li><a href="#" onclick="showPage('publications')">Publications</a></li>
-                <li><a href="#" onclick="showPage('participate')">Participate</a></li>
+                <li><a href="#" onclick="showPage('home', this); return false;">Home</a></li>
+                <li><a href="#" onclick="showPage('people', this); return false;">People</a></li>
+                <li><a href="#" onclick="showPage('research', this); return false;">Research</a></li>
+                <li><a href="#" onclick="showPage('publications', this); return false;">Publications</a></li>
+                <li><a href="#" onclick="showPage('participate', this); return false;">Participate</a></li>
             </ul>
         </nav>
     </div>
@@ -1154,32 +1208,34 @@
 </footer>
 
 <script>
-    function showPage(pageId) {
-        // Hide all pages
-        document.querySelectorAll('.page').forEach(page => {
-            page.classList.remove('active');
-        });
-        
-        // Show selected page
-        document.getElementById(pageId).classList.add('active');
-        
-        // Update active link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.classList.remove('active');
-        });
-        event.target.classList.add('active');
-        
-        // Scroll to top
-        window.scrollTo({top: 0, behavior: 'smooth'});
-        
-        // Close mobile menu
-        document.getElementById('menu').classList.remove('active');
+<script>
+ function showPage(pageId, element) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+    
+    // Show selected page
+    document.getElementById(pageId).classList.add('active');
+    
+    // Update active link
+    document.querySelectorAll('nav a').forEach(link => {
+        link.classList.remove('active');
+    });
+    if(element) {
+        element.classList.add('active');
     }
+    
+    // Scroll to top
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    
+    // Close mobile menu
+    document.getElementById('menu').classList.remove('active');
+}
 
-    function toggleMenu() {
-        document.getElementById('menu').classList.toggle('active');
-    }
-</script>
+function toggleMenu() {
+    document.getElementById('menu').classList.toggle('active');
+}
 
 </body>
 </html>
