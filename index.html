@@ -12,26 +12,27 @@
         }
 
         :root {
-    --cyan: #7dd87d;
-    --white: #ffffff;
-    --black: #1a1a1a;
-    --dark-bg: #1a1a1a;
-    --light-bg: #f5f5f5;
-    --text-dark: #1a1a1a;
-    --text-light: #4a4a4a;
-    --accent: #7dd87d;
-}
+            --cyan: #7dd87d;
+            --white: #ffffff;
+            --black: #1a1a1a;
+            --dark-bg: #1a1a1a;
+            --light-bg: #f5f5f5;
+            --text-dark: #1a1a1a;
+            --text-light: #4a4a4a;
+            --accent: #7dd87d;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
             background: #3a3a3a;
-            overflow-x: hidden;  
+            overflow-x: hidden;
         }
 
         /* Header */
         header {
-            background: #2a2a2a;  /* Grigio scuro */
+            background: #2a2a2a;
             border-bottom: 3px solid var(--cyan);
             position: sticky;
             top: 0;
@@ -54,6 +55,7 @@
             background: linear-gradient(135deg, var(--cyan), var(--white));
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            -webkit-background-clip: text;
         }
 
         nav ul {
@@ -61,8 +63,9 @@
             display: flex;
             gap: 2rem;
         }
+
         nav a {
-            color: #ffffff;  /* Bianco per vedere su sfondo scuro */
+            color: #ffffff;
             text-decoration: none;
             font-weight: 600;
             padding: 0.5rem 1rem;
@@ -72,42 +75,55 @@
             font-size: 0.9rem;
             letter-spacing: 0.5px;
         }
+
         nav a:hover {
             background: #7dd87d;
             color: white;
         }
-        
+
         nav a.active {
             background: #7dd87d;
             color: white;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 5rem 2rem;
-            text-align: center;
+        .mobile-toggle {
+            display: none;
         }
 
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
+        /* Video Banner */
+        .video-divider {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 30vh;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--cyan), var(--magenta), var(--lime-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 800;
+        .video-divider video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.75) saturate(0.4) contrast(1.05);
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            line-height: 1.8;
+        /* Logo Centrato */
+        .logo-center {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            background: transparent;
+            margin: 0;
+        }
+
+        .logo-center img {
+            width: 450px;
+            max-width: 90%;
+            height: auto;
+            filter: drop-shadow(0 4px 20px rgba(125, 216, 125, 0.5));
         }
 
         /* Main Content */
@@ -117,12 +133,13 @@
             padding: 4rem 2rem;
             background: #2d2d2d;
         }
-        .section p {
-            color: #e0e0e0;
-        }
 
         .section {
             margin-bottom: 4rem;
+        }
+
+        .section p {
+            color: #e0e0e0;
         }
 
         .section-title {
@@ -149,21 +166,6 @@
             transition: all 0.3s ease;
             border-top: 4px solid var(--cyan);
         }
-        .research-card h3 {
-            color: #7dd87d;
-        }
-        
-        .research-card p {
-            color: #d0d0d0;
-        }
-
-        .research-card:nth-child(2) {
-            border-top-color: var(--magenta);
-        }
-
-        .research-card:nth-child(3) {
-            border-top-color: var(--lime-green);
-        }
 
         .research-card:hover {
             transform: translateY(-10px);
@@ -174,25 +176,18 @@
             width: 80px;
             height: 80px;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--cyan), var(--magenta));
+            background: linear-gradient(135deg, var(--cyan), #6fcfe7);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
         }
+
         .research-icon img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-        }
-
-        .research-card:nth-child(2) .research-icon {
-            background: linear-gradient(135deg, var(--magenta), var(--purple));
-        }
-
-        .research-card:nth-child(3) .research-icon {
-            background: linear-gradient(135deg, var(--lime-green), var(--yellow));
         }
 
         .research-card h3 {
@@ -202,7 +197,7 @@
         }
 
         .research-card p {
-            color: #e0e0e0;
+            color: #d0d0d0;
             line-height: 1.8;
         }
 
@@ -227,61 +222,177 @@
             transform: scale(1.05);
         }
 
-        /* Team Grid */
+        /* Team Section */
+        .team-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+
+        .team-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #7dd87d;
+            font-weight: 700;
+        }
+
+        .team-member.pi {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 80px;
+            padding: 40px;
+            background: #3a3a3a;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .team-member.pi img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
         }
 
         .team-member {
-            text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            background: #3a3a3a;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
         }
 
         .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
         }
 
-        .team-member img {
+        .team-grid .team-member img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 1.5rem;
-            border: 4px solid var(--cyan);
-            border: none !important;
+            margin: 0 auto 20px;
+            display: block;
         }
 
-        .team-member:nth-child(2) img {
-            border-color: var(--magenta);
+        .member-info h3 {
+            font-size: 1.5em;
+            margin: 15px 0 5px 0;
+            color: #7dd87d;
         }
 
-        .team-member:nth-child(3) img {
-            border-color: var(--lime-green);
+        .team-member.pi .member-info h3 {
+            font-size: 2em;
         }
 
-        .team-member h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .team-member .role {
-            color: var(--cyan);
+        .member-info .role {
+            font-size: 1em;
+            color: #7dd87d;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .team-member p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+        .member-info .bio {
+            font-size: 1em;
+            line-height: 1.7;
+            color: #d0d0d0;
+        }
+
+        /* Alumni Section */
+        .alumni-section {
+            max-width: 1200px;
+            margin: 80px auto 100px;
+            padding: 0 40px;
+        }
+
+        .alumni-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #7dd87d;
+            font-weight: 700;
+        }
+
+        .alumni-intro {
+            text-align: center;
+            font-size: 1.1em;
+            color: #d0d0d0;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .alumni-card {
+            background: #4a4a4a;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .alumni-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .alumni-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            display: block;
+        }
+
+        .alumni-card h3 {
+            font-size: 1.1em;
+            margin: 10px 0 5px 0;
+            color: #ffffff;
+        }
+
+        .alumni-role {
+            font-size: 0.9em;
+            color: #7dd87d;
+            font-weight: 600;
+            margin: 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .alumni-period {
+            font-size: 0.85em;
+            color: #999;
+            margin: 5px 0 10px 0;
+        }
+
+        .alumni-now {
+            font-size: 0.9em;
+            color: #d0d0d0;
+            line-height: 1.5;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #5a5a5a;
+            font-style: italic;
         }
 
         /* Publications */
@@ -291,12 +402,12 @@
             margin-bottom: 1.5rem;
             border-radius: 10px;
             border-left: 5px solid var(--cyan);
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
         }
 
         .publication:hover {
-            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.4);
             transform: translateX(5px);
         }
 
@@ -319,7 +430,7 @@
 
         /* Contact Section */
         .contact-box {
-            background: linear-gradient(135deg, var(--cyan), var(--magenta));
+            background: linear-gradient(135deg, #7dd87d, #6fcfe7);
             padding: 3rem;
             border-radius: 15px;
             color: white;
@@ -340,7 +451,7 @@
         .contact-email {
             display: inline-block;
             background: white;
-            color: var(--cyan);
+            color: #7dd87d;
             padding: 1rem 2.5rem;
             border-radius: 50px;
             font-weight: bold;
@@ -366,69 +477,6 @@
             color: #aaa;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-    .mobile-toggle {
-        display: block;
-        background: none;
-        border: 2px solid #7dd87d;
-        color: #7dd87d;
-        font-size: 1.5rem;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #2a2a2a;
-        padding: 1rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        border-top: 2px solid #7dd87d;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-    
-    nav ul li {
-        margin: 0;
-    }
-    
-    nav ul a {
-        color: #ffffff;
-        display: block;
-        padding: 1rem;
-        border-bottom: 1px solid #3a3a3a;
-    }
-    
-    nav ul a:hover,
-    nav ul a.active {
-        background: #7dd87d;
-        color: #ffffff;
-    }
-}
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .research-grid,
-            .team-grid,
-            .image-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         /* Page Visibility */
         .page {
             display: none;
@@ -449,400 +497,120 @@
                 transform: translateY(0);
             }
         }
-        /* STILI SEZIONE TEAM - Aggiungi questo CSS dentro il tag <style> */
 
-/* Sezione Team - Container principale */
-.team-section {
-    max-width: 1200px;
-    margin: 80px auto;
-    padding: 0 40px;
-}
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .alumni-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
 
-.team-section h2 {
-    font-size: 2.5em;
-    text-align: center;
-    margin-bottom: 60px;
-    color: #7dd87d;
-    font-weight: 700;
-}
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+                background: none;
+                border: 2px solid #7dd87d;
+                color: #7dd87d;
+                font-size: 1.5rem;
+                padding: 0.5rem 1rem;
+                border-radius: 4px;
+                cursor: pointer;
+            }
 
-/* Principal Investigator - Layout speciale */
-.team-member.pi {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 80px;
-    padding: 40px;
-    background: #3a3a3a;  /* Grigio scuro invece di gradiente */
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #2a2a2a;
+                padding: 1rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+                border-top: 2px solid #7dd87d;
+                z-index: 1000;
+                gap: 0;
+            }
 
-.team-member.pi img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    flex-shrink: 0;
-    border: none !important;
-}
+            nav ul.active {
+                display: flex;
+            }
 
-/* Griglia per PhD e Master's students */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-    margin-bottom: 60px;
-}
+            nav ul li {
+                margin: 0;
+            }
 
-/* Card membro team */
-.team-member {
-    background: #3a3a3a;
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-}
+            nav ul a {
+                color: #ffffff;
+                display: block;
+                padding: 1rem;
+                border-bottom: 1px solid #3a3a3a;
+            }
 
-.team-member:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-}
+            nav ul a:hover,
+            nav ul a.active {
+                background: #7dd87d;
+                color: #ffffff;
+            }
 
-.team-grid .team-member img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 20px;
-    display: block;
-    border: 4px solid #f0f2f5;
-    transition: border-color 0.3s ease;
-}
+            .video-divider {
+                height: 25vh;
+            }
 
-.team-member:hover img {
-    border-color: #6fcfe7;
-}
+            .logo-center {
+                padding: 40px 20px;
+            }
 
-/* Info membro */
-.member-info h3 {
-    font-size: 1.5em;
-    margin: 15px 0 5px 0;
-    color: #7dd87d;
-}
+            .logo-center img {
+                width: 280px;
+                max-width: 90%;
+            }
 
-.team-member.pi .member-info h3 {
-    font-size: 2em;
-}
+            .team-member.pi {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
 
-.member-info .role {
-    font-size: 1em;
-    color: #7dd87d;
-    font-weight: 600;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
+            .team-member.pi img {
+                width: 150px;
+                height: 150px;
+            }
 
-.member-info .bio {
-    font-size: 1em;
-    line-height: 1.7;
-    color: #d0d0d0;
-}
+            .team-section {
+                padding: 0 20px;
+                margin: 40px auto;
+            }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .team-member.pi {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px 20px;
-    }
-    
-    .team-member.pi img {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .team-section {
-        padding: 0 20px;
-        margin: 40px auto;
-    }
-    
-    .team-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-}
-        /* STILI SEZIONE ALUMNI - Aggiungi questo CSS dentro il tag <style> (dopo gli stili del team) */
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
 
-/* Sezione Alumni - Container principale */
-.alumni-section {
-    max-width: 1200px;
-    margin: 80px auto 100px;
-    padding: 0 40px;
-}
+            .alumni-section {
+                padding: 0 20px;
+            }
 
-.alumni-section h2 {
-    font-size: 2.5em;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #2c3e50;
-}
+            .alumni-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
 
-.alumni-intro {
-    text-align: center;
-    font-size: 1.1em;
-    color: #666;
-    margin-bottom: 50px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
+            .research-grid,
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
-/* Grid Alumni - 4 colonne */
-.alumni-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-}
-
-/* Card singolo alunno */
-.alumni-card {
-    background: #4a4a4a;
-    border-radius: 12px;
-    padding: 25px 20px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-    border: 1px solid #f0f0f0;
-}
-
-.alumni-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    border-color: #e0e0e0;
-}
-
-.alumni-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 15px;
-    display: block;
-    border: none;
-    transition: border-color 0.3s ease;
-}
-
-.alumni-card:hover img {
-    border-color: #e76f9a;
-}
-
-.alumni-card h3 {
-    font-size: 1.1em;
-    margin: 10px 0 5px 0;
-    color: #ffffff;
-}
-
-.alumni-role {
-    font-size: 0.9em;
-    color: #7dd87d;
-    font-weight: 600;
-    margin: 5px 0;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-}
-
-.alumni-period {
-    font-size: 0.85em;
-    color: #999;
-    margin: 5px 0 10px 0;
-}
-
-.alumni-now {
-    font-size: 0.9em;
-    color: #d0d0d0;
-    line-height: 1.5;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid #f0f0f0;
-    font-style: italic;
-}
-
-/* Responsive - 3 colonne su tablet */
-@media (max-width: 1024px) {
-    .alumni-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-}
-
-/* Responsive - 2 colonne su mobile */
-@media (max-width: 768px) {
-    .alumni-section {
-        padding: 0 20px;
-        margin: 60px auto 80px;
-    }
-    
-    .alumni-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .alumni-card {
-        padding: 20px 15px;
-    }
-    
-    .alumni-card img {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .alumni-card h3 {
-        font-size: 1em;
-    }
-    
-    .alumni-role,
-    .alumni-now {
-        font-size: 0.85em;
-    }
-}
-
-/* Responsive - 1 colonna su mobile piccolo */
-@media (max-width: 480px) {
-    .alumni-grid {
-        grid-template-columns: 1fr;
-    }
-/* CSS HOME - Video Full-Width + Logo Centrato */
-/* Sostituisci il CSS video e logo (circa riga 714-770) */
-
-/* ===== VIDEO E LOGO CENTRATI ===== */
-
-/* Video Centrato Desktop */
-.video-divider {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    height: 30vh;
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.video-divider video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.75) saturate(0.4) contrast(1.05);
-}
-
-/* Logo CENTRATO (senza limiti) */
-.logo-center {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 0;
-    background: transparent;
-    margin: 0;
-}
-
-.logo-center img {
-    width: 450px;
-    max-width: 90%;
-    height: auto;
-    filter: drop-shadow(0 4px 20px rgba(125, 216, 125, 0.5));
-}
-
-/* Video PEOPLE stessa altezza della Home */
-#people .video-divider {
-    height: 30vh;  /* ← UGUALE alla Home! */
-}
-
-/* Video Research e Publications più bassi */
-#research .video-divider,
-#publications .video-divider {
-    height: 20vh;
-}
-
-/* ===== RESPONSIVE MOBILE ===== */
-
-@media (max-width: 768px) {
-    .mobile-toggle {
-        display: block;
-        background: none;
-        border: 2px solid #7dd87d;
-        color: #7dd87d;
-        font-size: 1.5rem;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #2a2a2a;
-        padding: 1rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        border-top: 2px solid #7dd87d;
-        z-index: 1000;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-    
-    nav ul li {
-        margin: 0;
-    }
-    
-    nav ul a {
-        color: #ffffff;
-        display: block;
-        padding: 1rem;
-        border-bottom: 1px solid #3a3a3a;
-    }
-    
-    nav ul a:hover,
-    nav ul a.active {
-        background: #7dd87d;
-        color: #ffffff;
-    }
-    
-    .video-divider {
-        height: 25vh;
-        margin-left: 0;
-        width: 100%;
-    }
-    
-    .logo-center {
-        padding: 40px 0;
-    }
-    
-    .logo-center img {
-        width: 280px;
-        max-width: 90%;
-    }
-    
-    #people .video-divider {
-        height: 25vh;
-    }
-    
-    #research .video-divider,
-    #publications .video-divider {
-        height: 18vh;
-    }
-}
+        @media (max-width: 480px) {
+            .alumni-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
+
 <!-- Header -->
 <header>
     <div class="header-content">
@@ -851,30 +619,27 @@
         <nav>
             <ul id="menu">
                 <li><a href="#" onclick="showPage('home', this); return false;" class="active">HOME</a></li>
-                <li><a href="#" onclick="showPage('people', this); return false;">People</a></li>
-                <li><a href="#" onclick="showPage('research', this); return false;">Research</a></li>
-                <li><a href="#" onclick="showPage('publications', this); return false;">Publications</a></li>
-                <li><a href="#" onclick="showPage('participate', this); return false;">Participate</a></li>
+                <li><a href="#" onclick="showPage('people', this); return false;">PEOPLE</a></li>
+                <li><a href="#" onclick="showPage('research', this); return false;">RESEARCH</a></li>
+                <li><a href="#" onclick="showPage('publications', this); return false;">PUBLICATIONS</a></li>
+                <li><a href="#" onclick="showPage('participate', this); return false;">PARTICIPATE</a></li>
             </ul>
         </nav>
     </div>
 </header>
-    
+
 <!-- HOME PAGE -->
 <div id="home" class="page active">
-    <!-- Video FUORI dal container -->
     <section class="video-divider">
         <video autoplay loop muted playsinline>
             <source src="hero-video.mp4" type="video/mp4">
         </video>
     </section>
     
-    <!-- Logo FUORI dal container -->
     <div class="logo-center">
         <img src="lab-logo-transparent.png" alt="Dynamic Perception Lab">
     </div>
     
-    <!-- CONTAINER per il contenuto (limitato 1200px) -->
     <div class="container">
         <section class="section">
             <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0;">
@@ -887,21 +652,21 @@
             <div class="research-grid">
                 <div class="research-card">
                     <div class="research-icon">
-                        <img src="brain.png" alt="Intuitive Physics">
+                        <img src="brain-icon.png" alt="Intuitive Physics">
                     </div>
                     <h3>Intuitive Physics</h3>
                     <p>We investigate the computational mechanisms that allow us to make split-second assessments of physical structure and dynamics in everyday environments using psychophysics and computational modeling.</p>
                 </div>
                 <div class="research-card">
                     <div class="research-icon">
-                        <img src="tech.png" alt="Perception">
+                        <img src="tech-circle-icon.png" alt="Visual Perception">
                     </div>
                     <h3>Visual Perception</h3>
                     <p>Our lab studies how visual information transforms into physical understanding, exploring the complete pipeline from perception to action through functional brain imaging.</p>
                 </div>
                 <div class="research-card">
                     <div class="research-icon">
-                        <img src="dice.png" alt="Prediction">
+                        <img src="dice-icon.png" alt="Physical Prediction">
                     </div>
                     <h3>Physical Prediction</h3>
                     <p>Understanding how the mind predicts trajectories, stability, and physical outcomes—the brain's physics engine that guides our interactions with dynamic environments.</p>
@@ -912,30 +677,26 @@
         <section class="section">
             <h2 class="section-title">Dynamic Perception in Action</h2>
             <div class="image-grid">
-               <img src="pool-physics.png" alt="Physical prediction in pool">
+                <img src="pool-physics.png" alt="Physical prediction in pool">
                 <img src="car-balance.jpg" alt="Stability and balance">
                 <img src="water-dynamics.jpg" alt="Fluid dynamics"> 
             </div>
         </section>
-       
     </div>
 </div>
 
 <!-- PEOPLE PAGE -->
 <div id="people" class="page">
-    <!-- Video FUORI dal container (full-width, più basso) -->
     <section class="video-divider">
         <video autoplay loop muted playsinline>
             <source src="people-video.mp4" type="video/mp4">
         </video>
     </section>
     
-    <!-- CONTAINER per il contenuto -->
     <div class="container">
-        <section id="people" class="team-section">
+        <section class="team-section">
             <h2>Our Team</h2>
             
-            <!-- Principal Investigator -->
             <div class="team-member pi">
                 <img src="jason-fischer.png" alt="Dr. Jason Fischer">
                 <div class="member-info">
@@ -945,7 +706,6 @@
                 </div>
             </div>
 
-            <!-- PhD Students -->
             <div class="team-grid">
                 <div class="team-member">
                     <img src="alex-mitko.png" alt="Alex Mitko">
@@ -966,7 +726,6 @@
                 </div>
             </div>
 
-            <!-- Master's Students -->
             <div class="team-grid">
                 <div class="team-member">
                     <img src="garrett-goldin.png" alt="Garrett Goldin">
@@ -987,14 +746,12 @@
                 </div>
             </div>
         </section>
-        <section class="section">
-            <!-- SEZIONE ALUMNI -->
+
         <section class="alumni-section">
             <h2>Alumni</h2>
             <p class="alumni-intro">Our lab alumni have gone on to pursue outstanding careers in academia, industry, and beyond.</p>
             
             <div class="alumni-grid">
-                <!-- Row 1 -->
                 <div class="alumni-card">
                     <img src="sarah-cormiea.png" alt="Dr. Sarah Cormiea">
                     <h3>Dr. Sarah Cormiea</h3>
@@ -1026,7 +783,6 @@
                     <p class="alumni-now">User Experience Researcher<br>Google</p>
                 </div>
 
-                <!-- Row 2 -->
                 <div class="alumni-card">
                     <img src="florence-campana.png" alt="Dr. Florence Campana">
                     <h3>Dr. Florence Campana</h3>
@@ -1058,8 +814,10 @@
                 </div>
             </div>
         </section>
+
+        <section class="section">
             <h2 class="section-title">Join Our Team</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0;">
                 We're seeking brilliant minds passionate about understanding how perception shapes our physical reality. If you're fascinated by the intersection of vision, cognition, and intuitive physics, we want to hear from you. Check our opportunities or reach out directly to explore collaboration possibilities.
             </p>
         </section>
@@ -1071,19 +829,19 @@
     <div class="container">
         <section class="section">
             <h2 class="section-title">Research</h2>
-            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; color: #e0e0e0;">
                 <strong>What are the mental algorithms that allow us to make split-second assessments of the physical structure and dynamics of our everyday environments?</strong> How are they situated within the broader landscapes of perception and cognition?
             </p>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0;">
                 Our lab studies the architecture of the intuitive physics system in the mind and brain using <strong>psychophysics</strong>, <strong>computational modeling</strong>, and <strong>functional brain imaging</strong>. We decode how humans translate visual information into physical understanding—bridging the gap between what we see and what we know about how the world works.
             </p>
         </section>
 
         <section class="section">
             <div class="image-grid">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect fill='%236fcfe7' width='300' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='14' dy='.3em'%3Ehula-hoop.jpg%3C/text%3E%3C/svg%3E" alt="Research">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect fill='%23e76f9a' width='300' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='14' dy='.3em'%3Ekayak-reflection.jpg%3C/text%3E%3C/svg%3E" alt="Research">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250'%3E%3Crect fill='%237dd87d' width='300' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='white' font-size='14' dy='.3em'%3Ewater-drop.jpg%3C/text%3E%3C/svg%3E" alt="Research">
+                <img src="pool-physics.png" alt="Research">
+                <img src="car-balance.jpg" alt="Research">
+                <img src="water-dynamics.jpg" alt="Research">
             </div>
         </section>
 
@@ -1144,7 +902,7 @@
 
         <section class="section">
             <h2 class="section-title">Special Issue</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8;">
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0;">
                 <strong>Intuitive Physics Within the Landscape of the Mind</strong> — A special issue in <em>Cognitive Neuropsychology</em> guest edited by Jason Fischer, exploring how physical understanding fits within broader cognitive architecture.
             </p>
         </section>
@@ -1156,7 +914,7 @@
     <div class="container">
         <section class="section">
             <h2 class="section-title">Participate in Our Research</h2>
-            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 3rem;">
+            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 3rem; color: #e0e0e0;">
                 Your participation directly advances our understanding of one of the mind's most fascinating capabilities—how we effortlessly navigate and predict the physical world around us.
             </p>
 
@@ -1194,31 +952,43 @@
     <p>&copy; 2026 The Dynamic Perception Lab. All rights reserved.</p>
     <p>University of Coimbra, Portugal</p>
 </footer>
+
 <script>
-    function showPage(pageId) {
-        // Hide all pages
+    function showPage(pageId, element) {
+        // Nascondi tutte le pagine
         document.querySelectorAll('.page').forEach(page => {
             page.classList.remove('active');
         });
         
-        // Show selected page
-        document.getElementById(pageId).classList.add('active');
+        // Mostra la pagina selezionata
+        const selectedPage = document.getElementById(pageId);
+        if (selectedPage) {
+            selectedPage.classList.add('active');
+        }
         
-        // Update active link
+        // Aggiorna link attivo
         document.querySelectorAll('nav a').forEach(link => {
             link.classList.remove('active');
         });
-        event.target.classList.add('active');
+        if (element) {
+            element.classList.add('active');
+        }
         
         // Scroll to top
         window.scrollTo({top: 0, behavior: 'smooth'});
         
-        // Close mobile menu
-        document.getElementById('menu').classList.remove('active');
+        // Chiudi menu mobile
+        const menu = document.getElementById('menu');
+        if (menu) {
+            menu.classList.remove('active');
+        }
     }
 
     function toggleMenu() {
-        document.getElementById('menu').classList.toggle('active');
+        const menu = document.getElementById('menu');
+        if (menu) {
+            menu.classList.toggle('active');
+        }
     }
 </script>
 
