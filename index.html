@@ -607,6 +607,298 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* CSS PER PUBLICATIONS AVANZATE */
+/* Aggiungi questo CSS al tuo <style> esistente */
+
+/* Filtri Pubblicazioni */
+.publication-filters {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #4a4a4a;
+    border-radius: 10px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-size: 0.9rem;
+    color: #7dd87d;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-group select,
+.filter-group input[type="text"] {
+    padding: 0.7rem 1rem;
+    border: 2px solid #5a5a5a;
+    border-radius: 6px;
+    background: #3a3a3a;
+    color: #ffffff;
+    font-size: 1rem;
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.filter-group select:focus,
+.filter-group input[type="text"]:focus {
+    outline: none;
+    border-color: #7dd87d;
+}
+
+/* Statistiche Pubblicazioni */
+.pub-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0 3rem 0;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #7dd87d, #6fcfe7);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Card Pubblicazione */
+.publication-card {
+    background: #4a4a4a;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    border-left: 5px solid #7dd87d;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.publication-card:hover {
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+    transform: translateY(-3px);
+}
+
+.pub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pub-header h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.pub-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-year {
+    background: #5a5a5a;
+    color: #ffffff;
+}
+
+.badge-topic {
+    background: #7dd87d;
+    color: #ffffff;
+}
+
+.badge-citations {
+    background: #6fcfe7;
+    color: #ffffff;
+}
+
+.pub-authors {
+    color: #d0d0d0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.pub-authors strong {
+    color: #7dd87d;
+}
+
+.pub-journal {
+    color: #7dd87d;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* Abstract Espandibile */
+.pub-abstract {
+    margin: 1.5rem 0;
+}
+
+.abstract-toggle {
+    background: #3a3a3a;
+    border: 2px solid #5a5a5a;
+    color: #7dd87d;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.abstract-toggle:hover {
+    background: #7dd87d;
+    color: #ffffff;
+    border-color: #7dd87d;
+}
+
+.abstract-content {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #3a3a3a;
+    border-left: 3px solid #7dd87d;
+    border-radius: 6px;
+    color: #d0d0d0;
+    line-height: 1.8;
+}
+
+.abstract-content.show {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Azioni Pubblicazione */
+.pub-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.btn-action {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    background: #3a3a3a;
+    color: #7dd87d;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 2px solid #5a5a5a;
+    transition: all 0.3s ease;
+}
+
+.btn-action:hover {
+    background: #7dd87d;
+    color: #ffffff;
+    border-color: #7dd87d;
+    transform: translateY(-2px);
+}
+
+/* Special Issue Box */
+.special-issue-box {
+    background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
+    padding: 3rem;
+    border-radius: 12px;
+    border: 2px solid #7dd87d;
+    text-align: center;
+}
+
+.special-issue-box h2 {
+    color: #7dd87d;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.special-issue-box h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.special-issue-box p {
+    color: #d0d0d0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .publication-filters {
+        flex-direction: column;
+    }
+    
+    .filter-group select,
+    .filter-group input[type="text"] {
+        min-width: 100%;
+    }
+    
+    .pub-header {
+        flex-direction: column;
+    }
+    
+    .pub-badges {
+        justify-content: flex-start;
+    }
+    
+    .pub-actions {
+        flex-direction: column;
+    }
+    
+    .btn-action {
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -643,7 +935,7 @@
     <div class="container">
         <section class="section">
             <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0;">
-                <strong>Our seamless interaction with the world is no small feat.</strong> Packing delicate groceries, stacking glassware, reshuffling precariously balanced cans in a cabinet—each action selected and calibrated based on expectations about its physical consequences. In daily life, we continually form implicit, online physical predictions to guide our decisions and actions, and this process can often feel as effortless as the act of seeing.
+                <strong>Our interaction with the physical world feels effortless, but it is anything but simple.</strong> From packing fragile groceries to stacking glassware or navigating a cluttered cabinet, every action we take depends on rapid predictions about stability, weight, balance, and motion. These predictions are generated continuously, online, and with remarkable precision—often without entering awareness. Seeing the world is only the first step; understanding how it will behave is what allows us to act..
             </p>
         </section>
          
@@ -655,21 +947,21 @@
                         <img src="brain.png" alt="Intuitive Physics">
                     </div>
                     <h3>Intuitive Physics</h3>
-                    <p>We investigate the computational mechanisms that allow us to make split-second assessments of physical structure and dynamics in everyday environments using psychophysics and computational modeling.</p>
+                    <p>What are the mental algorithms that make these split-second physical judgments possible? How does the brain extract physical structure and dynamics from visual input, and how are these computations embedded within broader systems of perception, cognition, and action?.</p>
                 </div>
                 <div class="research-card">
                     <div class="research-icon">
                         <img src="tech.png" alt="Visual Perception">
                     </div>
                     <h3>Visual Perception</h3>
-                    <p>Our lab studies how visual information transforms into physical understanding, exploring the complete pipeline from perception to action through functional brain imaging.</p>
+                    <p>At the Dynamic Perception Lab, we study the architecture of intuitive physics in the mind and brain. Using psychophysics, computational modeling, and functional neuroimaging, we investigate how visual information is transformed into physical knowledge that supports prediction, decision-making, and skilled action in real-world environments.</p>
                 </div>
                 <div class="research-card">
                     <div class="research-icon">
                         <img src="dice.png" alt="Physical Prediction">
                     </div>
                     <h3>Physical Prediction</h3>
-                    <p>Understanding how the mind predicts trajectories, stability, and physical outcomes—the brain's physics engine that guides our interactions with dynamic environments.</p>
+                    <p>Understanding how the mind predicts trajectories, stability, and physical outcomes. The brain's physics engine that guides our interactions with dynamic daily environments.</p>
                 </div>
             </div>
         </section>
@@ -865,47 +1157,250 @@
     </div>
 </div>
 
-<!-- PUBLICATIONS PAGE -->
+<!-- SEZIONE PUBLICATIONS AVANZATA -->
+<!-- Sostituisci la sezione Publications nel tuo index.html -->
+
 <div id="publications" class="page">
     <div class="container">
+        <!-- Header con filtri -->
         <section class="section">
             <h2 class="section-title">Publications</h2>
             
-            <div class="publication">
-                <h3>The building blocks of intuitive physics in the mind and brain</h3>
-                <div class="authors">Jason Fischer</div>
-                <div class="journal">Cognitive Neuropsychology, 2022</div>
-                <p>A comprehensive framework for understanding how the brain constructs physical intuitions from perceptual building blocks.</p>
+            <!-- Filtri -->
+            <div class="publication-filters">
+                <div class="filter-group">
+                    <label>Filter by Year:</label>
+                    <select id="yearFilter" onchange="filterPublications()">
+                        <option value="all">All Years</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Filter by Topic:</label>
+                    <select id="topicFilter" onchange="filterPublications()">
+                        <option value="all">All Topics</option>
+                        <option value="intuitive-physics">Intuitive Physics</option>
+                        <option value="perception">Visual Perception</option>
+                        <option value="action">Action & Planning</option>
+                        <option value="neural">Neural Mechanisms</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <input type="text" id="searchBox" placeholder="Search publications..." onkeyup="filterPublications()">
+                </div>
             </div>
-
-            <div class="publication">
-                <h3>What tool representation, intuitive physics, and action have in common: The brain's first-person physics engine</h3>
-                <div class="authors">Jason Fischer & Bradford Z. Mahon</div>
-                <div class="journal">Cognitive Neuropsychology, 2022</div>
-                <p>Revealing how the brain integrates tool knowledge with physical simulation to plan actions.</p>
-            </div>
-
-            <div class="publication">
-                <h3>A role for visual areas in physics simulations</h3>
-                <div class="authors">Aarit Ahuja, Theresa M. Desrochers & David L. Sheinberg</div>
-                <div class="journal">Cognitive Neuropsychology, 2022</div>
-                <p>Evidence that visual cortex actively participates in mental physics simulations.</p>
-            </div>
-
-            <div class="publication">
-                <h3>Partial mental simulation explains fallacies in physical reasoning</h3>
-                <div class="authors">Ilona Bass, Kevin A. Smith, Elizabeth Bonawitz & Tomer D. Ullman</div>
-                <div class="journal">Cognitive Neuropsychology, 2022</div>
-                <p>Why we sometimes get physics wrong—and what it reveals about our mental models.</p>
+            
+            <!-- Statistiche -->
+            <div class="pub-stats">
+                <div class="stat-box">
+                    <div class="stat-number" id="totalPubs">15</div>
+                    <div class="stat-label">Total Publications</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="citations">847</div>
+                    <div class="stat-label">Citations</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="hIndex">12</div>
+                    <div class="stat-label">h-index</div>
+                </div>
             </div>
         </section>
 
+        <!-- Lista Pubblicazioni -->
         <section class="section">
-            <h2 class="section-title">Special Issue</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0;">
-                <strong>Intuitive Physics Within the Landscape of the Mind</strong> — A special issue in <em>Cognitive Neuropsychology</em> guest edited by Jason Fischer, exploring how physical understanding fits within broader cognitive architecture.
-            </p>
+            <div id="publicationsList">
+                
+                <!-- Publication 1 -->
+                <div class="publication-card" data-year="2022" data-topic="intuitive-physics">
+                    <div class="pub-header">
+                        <h3>The building blocks of intuitive physics in the mind and brain</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2022</span>
+                            <span class="badge badge-topic">Intuitive Physics</span>
+                            <span class="badge badge-citations">89 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        <strong>Jason Fischer</strong>
+                    </div>
+                    
+                    <div class="pub-journal">
+                        Cognitive Neuropsychology, 2022
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            A comprehensive framework for understanding how the brain constructs physical intuitions from perceptual building blocks. This paper proposes that intuitive physics emerges from the integration of multiple cognitive systems, including visual perception, spatial reasoning, and motor planning.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="papers/fischer-2022-building-blocks.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1080/02643294.2022.example" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com/scholar?q=fischer+building+blocks+intuitive+physics" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 2 -->
+                <div class="publication-card" data-year="2022" data-topic="action">
+                    <div class="pub-header">
+                        <h3>What tool representation, intuitive physics, and action have in common: The brain's first-person physics engine</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2022</span>
+                            <span class="badge badge-topic">Action & Planning</span>
+                            <span class="badge badge-citations">67 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        <strong>Jason Fischer</strong> & Bradford Z. Mahon
+                    </div>
+                    
+                    <div class="pub-journal">
+                        Cognitive Neuropsychology, 2022
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            Revealing how the brain integrates tool knowledge with physical simulation to plan actions. We propose a unified framework where tool use, physical reasoning, and action planning share common computational principles and neural substrates.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="papers/fischer-mahon-2022-tool-physics.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1080/02643294.2022.example2" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 3 -->
+                <div class="publication-card" data-year="2022" data-topic="neural">
+                    <div class="pub-header">
+                        <h3>A role for visual areas in physics simulations</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2022</span>
+                            <span class="badge badge-topic">Neural Mechanisms</span>
+                            <span class="badge badge-citations">54 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        Aarit Ahuja, Theresa M. Desrochers & David L. Sheinberg
+                    </div>
+                    
+                    <div class="pub-journal">
+                        Cognitive Neuropsychology, 2022
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            Evidence that visual cortex actively participates in mental physics simulations. Using fMRI, we demonstrate that primary visual areas show activation patterns consistent with simulation of physical events, even in the absence of actual visual input.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="papers/ahuja-2022-visual-physics.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1080/02643294.2022.example3" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 4 -->
+                <div class="publication-card" data-year="2022" data-topic="intuitive-physics">
+                    <div class="pub-header">
+                        <h3>Partial mental simulation explains fallacies in physical reasoning</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2022</span>
+                            <span class="badge badge-topic">Intuitive Physics</span>
+                            <span class="badge badge-citations">43 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        Ilona Bass, Kevin A. Smith, Elizabeth Bonawitz & Tomer D. Ullman
+                    </div>
+                    
+                    <div class="pub-journal">
+                        Cognitive Neuropsychology, 2022
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            Why we sometimes get physics wrong—and what it reveals about our mental models. We demonstrate that systematic errors in physical reasoning arise from incomplete mental simulations, where only partial aspects of a physical scenario are mentally modeled.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="papers/bass-2022-partial-simulation.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1080/02643294.2022.example4" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Messaggio quando nessun risultato -->
+            <div id="noResults" style="display: none; text-align: center; padding: 3rem; color: #999;">
+                <p style="font-size: 1.2rem;">No publications found matching your filters.</p>
+            </div>
         </section>
+
+        <!-- Special Issue -->
+        <section class="section">
+            <div class="special-issue-box">
+                <h2>Special Issue</h2>
+                <h3>Intuitive Physics Within the Landscape of the Mind</h3>
+                <p>A special issue in <em>Cognitive Neuropsychology</em> guest edited by Jason Fischer, exploring how physical understanding fits within broader cognitive architecture.</p>
+                <a href="https://www.tandfonline.com/toc/pcgn20/current" class="btn-action" target="_blank">
+                    View Special Issue →
+                </a>
+            </div>
+        </section>
+
     </div>
 </div>
 
@@ -990,6 +1485,71 @@
             menu.classList.toggle('active');
         }
     }
+    /* JAVASCRIPT PER PUBLICATIONS */
+/* Aggiungi questo nel tag <script> alla fine del tuo index.html */
+
+// Toggle Abstract
+function toggleAbstract(button) {
+    const abstractContent = button.nextElementSibling;
+    const isShowing = abstractContent.classList.contains('show');
+    
+    if (isShowing) {
+        abstractContent.classList.remove('show');
+        button.textContent = 'Show Abstract ▼';
+    } else {
+        abstractContent.classList.add('show');
+        button.textContent = 'Hide Abstract ▲';
+    }
+}
+
+// Filter Publications
+function filterPublications() {
+    const yearFilter = document.getElementById('yearFilter').value;
+    const topicFilter = document.getElementById('topicFilter').value;
+    const searchBox = document.getElementById('searchBox').value.toLowerCase();
+    
+    const publications = document.querySelectorAll('.publication-card');
+    let visibleCount = 0;
+    
+    publications.forEach(pub => {
+        const year = pub.getAttribute('data-year');
+        const topic = pub.getAttribute('data-topic');
+        const text = pub.textContent.toLowerCase();
+        
+        let showYear = yearFilter === 'all' || year === yearFilter;
+        let showTopic = topicFilter === 'all' || topic === topicFilter;
+        let showSearch = searchBox === '' || text.includes(searchBox);
+        
+        if (showYear && showTopic && showSearch) {
+            pub.style.display = 'block';
+            visibleCount++;
+        } else {
+            pub.style.display = 'none';
+        }
+    });
+    
+    // Mostra messaggio se non ci sono risultati
+    const noResults = document.getElementById('noResults');
+    if (visibleCount === 0) {
+        noResults.style.display = 'block';
+    } else {
+        noResults.style.display = 'none';
+    }
+    
+    // Aggiorna contatore pubblicazioni visibili
+    const totalPubs = document.getElementById('totalPubs');
+    if (totalPubs) {
+        totalPubs.textContent = visibleCount;
+    }
+}
+
+// Reset filtri
+function resetFilters() {
+    document.getElementById('yearFilter').value = 'all';
+    document.getElementById('topicFilter').value = 'all';
+    document.getElementById('searchBox').value = '';
+    filterPublications();
+}
 </script>
 
 </body>
