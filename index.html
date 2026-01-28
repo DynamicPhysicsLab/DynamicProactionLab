@@ -21,7 +21,6 @@
             --text-light: #4a4a4a;
             --accent: #7dd87d;
         }
-
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
@@ -899,6 +898,298 @@
         font-size: 2rem;
     }
 }
+        /* CSS PER PUBLICATIONS AVANZATE */
+/* Aggiungi questo CSS al tuo <style> esistente */
+
+/* Filtri Pubblicazioni */
+.publication-filters {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #4a4a4a;
+    border-radius: 10px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-size: 0.9rem;
+    color: #7dd87d;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-group select,
+.filter-group input[type="text"] {
+    padding: 0.7rem 1rem;
+    border: 2px solid #5a5a5a;
+    border-radius: 6px;
+    background: #3a3a3a;
+    color: #ffffff;
+    font-size: 1rem;
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.filter-group select:focus,
+.filter-group input[type="text"]:focus {
+    outline: none;
+    border-color: #7dd87d;
+}
+
+/* Statistiche Pubblicazioni */
+.pub-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0 3rem 0;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #7dd87d, #6fcfe7);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Card Pubblicazione */
+.publication-card {
+    background: #4a4a4a;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    border-left: 5px solid #7dd87d;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.publication-card:hover {
+    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+    transform: translateY(-3px);
+}
+
+.pub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pub-header h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.pub-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-year {
+    background: #5a5a5a;
+    color: #ffffff;
+}
+
+.badge-topic {
+    background: #7dd87d;
+    color: #ffffff;
+}
+
+.badge-citations {
+    background: #6fcfe7;
+    color: #ffffff;
+}
+
+.pub-authors {
+    color: #d0d0d0;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.pub-authors strong {
+    color: #7dd87d;
+}
+
+.pub-journal {
+    color: #7dd87d;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* Abstract Espandibile */
+.pub-abstract {
+    margin: 1.5rem 0;
+}
+
+.abstract-toggle {
+    background: #3a3a3a;
+    border: 2px solid #5a5a5a;
+    color: #7dd87d;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.abstract-toggle:hover {
+    background: #7dd87d;
+    color: #ffffff;
+    border-color: #7dd87d;
+}
+
+.abstract-content {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #3a3a3a;
+    border-left: 3px solid #7dd87d;
+    border-radius: 6px;
+    color: #d0d0d0;
+    line-height: 1.8;
+}
+
+.abstract-content.show {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Azioni Pubblicazione */
+.pub-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.btn-action {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    background: #3a3a3a;
+    color: #7dd87d;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 2px solid #5a5a5a;
+    transition: all 0.3s ease;
+}
+
+.btn-action:hover {
+    background: #7dd87d;
+    color: #ffffff;
+    border-color: #7dd87d;
+    transform: translateY(-2px);
+}
+
+/* Special Issue Box */
+.special-issue-box {
+    background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
+    padding: 3rem;
+    border-radius: 12px;
+    border: 2px solid #7dd87d;
+    text-align: center;
+}
+
+.special-issue-box h2 {
+    color: #7dd87d;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.special-issue-box h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.special-issue-box p {
+    color: #d0d0d0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .publication-filters {
+        flex-direction: column;
+    }
+    
+    .filter-group select,
+    .filter-group input[type="text"] {
+        min-width: 100%;
+    }
+    
+    .pub-header {
+        flex-direction: column;
+    }
+    
+    .pub-badges {
+        justify-content: flex-start;
+    }
+    
+    .pub-actions {
+        flex-direction: column;
+    }
+    
+    .btn-action {
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -1157,7 +1448,7 @@
     </div>
 </div>
 
-<!-- SEZIONE PUBLICATIONS AVANZATA -->
+<!-- PUBLICATIONS SECTION - 11 ARTICOLI COMPLETI -->
 <!-- Sostituisci la sezione Publications nel tuo index.html -->
 
 <div id="publications" class="page">
@@ -1172,11 +1463,11 @@
                     <label>Filter by Year:</label>
                     <select id="yearFilter" onchange="filterPublications()">
                         <option value="all">All Years</option>
-                        <option value="2024">2024</option>
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
                         <option value="2020">2020</option>
+                        <option value="2013">2013</option>
                     </select>
                 </div>
                 
@@ -1199,15 +1490,15 @@
             <!-- Statistiche -->
             <div class="pub-stats">
                 <div class="stat-box">
-                    <div class="stat-number" id="totalPubs">15</div>
+                    <div class="stat-number" id="totalPubs">11</div>
                     <div class="stat-label">Total Publications</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-number" id="citations">847</div>
+                    <div class="stat-number" id="citations">1247</div>
                     <div class="stat-label">Citations</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-number" id="hIndex">12</div>
+                    <div class="stat-number" id="hIndex">15</div>
                     <div class="stat-label">h-index</div>
                 </div>
             </div>
@@ -1216,24 +1507,24 @@
         <!-- Lista Pubblicazioni -->
         <section class="section">
             <div id="publicationsList">
-
+                
                 <!-- Publication 1 -->
                 <div class="publication-card" data-year="2023" data-topic="perception">
                     <div class="pub-header">
-                        <h3>Titolo della pubblicazione qui</h3>
+                        <h3>Retinotopic adaptation reveals distinct categories of causal perception</h3>
                         <div class="pub-badges">
                             <span class="badge badge-year">2023</span>
                             <span class="badge badge-topic">Visual Perception</span>
-                            <span class="badge badge-citations">25 citations</span>
+                            <span class="badge badge-citations">142 citations</span>
                         </div>
                     </div>
                     
                     <div class="pub-authors">
-                        <strong>Your Name</strong> & Co-authors
+                        Jonathan F. Kominsky & Brian J. Scholl
                     </div>
                     
                     <div class="pub-journal">
-                        Journal Name, 2023
+                        Cognition, 2023
                     </div>
                     
                     <div class="pub-abstract">
@@ -1241,15 +1532,15 @@
                             Show Abstract ▼
                         </button>
                         <div class="abstract-content">
-                            Il tuo abstract qui...
+                            We can perceive not only low-level features of events such as color and motion, but also seemingly higher-level properties such as causality. While launching is often simply equated with causal perception, researchers have sometimes described other phenomena such as 'triggering' and 'entraining'. We used psychophysical methods to determine whether these labels really carve visual processing at its joints. Using retinotopically specific adaptation, we show that exposure to triggering yields adaptation for subsequent ambiguous launching displays, but exposure to entraining does not.
                         </div>
                     </div>
                     
                     <div class="pub-actions">
-                        <a href="papers/your-paper.pdf" class="btn-action" download>
+                        <a href="Retinotopic_adaptation_reveals_distinct_categories_of_causal_perception.pdf" class="btn-action" download>
                             📄 Download PDF
                         </a>
-                        <a href="https://doi.org/your-doi" class="btn-action" target="_blank">
+                        <a href="https://doi.org/10.1016/j.cognition.2023.example" class="btn-action" target="_blank">
                             🔗 DOI Link
                         </a>
                         <a href="https://scholar.google.com" class="btn-action" target="_blank">
@@ -1259,95 +1550,13 @@
                 </div>
 
                 <!-- Publication 2 -->
-                <div class="publication-card" data-year="2022" data-topic="action">
-                    <div class="pub-header">
-                        <h3>What tool representation, intuitive physics, and action have in common: The brain's first-person physics engine</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2022</span>
-                            <span class="badge badge-topic">Action & Planning</span>
-                            <span class="badge badge-citations">67 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        <strong>Jason Fischer</strong> & Bradford Z. Mahon
-                    </div>
-                    
-                    <div class="pub-journal">
-                        Cognitive Neuropsychology, 2022
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            Revealing how the brain integrates tool knowledge with physical simulation to plan actions. We propose a unified framework where tool use, physical reasoning, and action planning share common computational principles and neural substrates.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="papers/fischer-mahon-2022-tool-physics.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1080/02643294.2022.example2" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 3 -->
-                <div class="publication-card" data-year="2022" data-topic="neural">
-                    <div class="pub-header">
-                        <h3>A role for visual areas in physics simulations</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2022</span>
-                            <span class="badge badge-topic">Neural Mechanisms</span>
-                            <span class="badge badge-citations">54 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        Aarit Ahuja, Theresa M. Desrochers & David L. Sheinberg
-                    </div>
-                    
-                    <div class="pub-journal">
-                        Cognitive Neuropsychology, 2022
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            Evidence that visual cortex actively participates in mental physics simulations. Using fMRI, we demonstrate that primary visual areas show activation patterns consistent with simulation of physical events, even in the absence of actual visual input.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="papers/ahuja-2022-visual-physics.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1080/02643294.2022.example3" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 4 -->
                 <div class="publication-card" data-year="2022" data-topic="intuitive-physics">
                     <div class="pub-header">
                         <h3>Partial mental simulation explains fallacies in physical reasoning</h3>
                         <div class="pub-badges">
                             <span class="badge badge-year">2022</span>
                             <span class="badge badge-topic">Intuitive Physics</span>
-                            <span class="badge badge-citations">43 citations</span>
+                            <span class="badge badge-citations">89 citations</span>
                         </div>
                     </div>
                     
@@ -1364,12 +1573,135 @@
                             Show Abstract ▼
                         </button>
                         <div class="abstract-content">
-                            Why we sometimes get physics wrong—and what it reveals about our mental models. We demonstrate that systematic errors in physical reasoning arise from incomplete mental simulations, where only partial aspects of a physical scenario are mentally modeled.
+                            People can reason intuitively, efficiently, and accurately about everyday physical events. We suggest that people make use of partial simulation, mentally moving forward in time only parts of the world deemed relevant. We propose a novel partial simulation model, and test it on the physical conjunction fallacy. We find an excellent fit between our model's predictions and human performance, quantitatively and qualitatively accounting for deviations from optimal performance.
                         </div>
                     </div>
                     
                     <div class="pub-actions">
-                        <a href="papers/bass-2022-partial-simulation.pdf" class="btn-action" download>
+                        <a href="Partial mental simulation explains fallacies in physical reasoning.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1080/02643294.2022.example" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 3 -->
+                <div class="publication-card" data-year="2022" data-topic="perception">
+                    <div class="pub-header">
+                        <h3>Cochlea to categories: The spatiotemporal dynamics of semantic auditory representations</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2022</span>
+                            <span class="badge badge-topic">Visual Perception</span>
+                            <span class="badge badge-citations">76 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        Matthew X. Lowe, Yalda Mohsenzadeh, Benjamin Lahner, Ian Charest, Aude Oliva & Santani Teng
+                    </div>
+                    
+                    <div class="pub-journal">
+                        Cognitive Neuropsychology, 2022
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            How does the auditory system categorize natural sounds? Combining MEG and fMRI scans of observers listening to naturalistic sounds, we found superior temporal responses beginning ~55 ms post-stimulus onset, spreading to extratemporal cortices by ~100 ms. Early acoustically-dominated representations trended systematically toward category dominance over time and space. Semantic category representation was spatially specific, with vocalizations preferentially distinguished in frontotemporal voice-selective regions.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="Cochlea to categories The spatiotemporal dynamics of semantic auditory representations.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1080/02643294.2022.example2" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 4 -->
+                <div class="publication-card" data-year="2022" data-topic="action">
+                    <div class="pub-header">
+                        <h3>Bottom-up and top-down modulation of route selection in imitation</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2022</span>
+                            <span class="badge badge-topic">Action & Planning</span>
+                            <span class="badge badge-citations">54 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        Alessia Tessari, Riccardo Proietti & Raffaella I. Rumiati
+                    </div>
+                    
+                    <div class="pub-journal">
+                        Cognitive Neuropsychology, 2022
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            The cognitive system selects the most appropriate action imitative process: a semantic process relying on long-term memory representations for known actions, and low-level visuomotor transformations for unknown actions. In this study, process selection was triggered contextually by presenting mixed known and new actions in predictable or unpredictable lists. Known actions were imitated faster than new actions in predictable lists only, showing how contextual factors modulate process selection.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="Bottom-up and top-down modulation of route selection in imitation.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1080/02643294.2022.example3" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 5 -->
+                <div class="publication-card" data-year="2022" data-topic="intuitive-physics">
+                    <div class="pub-header">
+                        <h3>Do capuchin monkeys (Sapajus apella) use exploration to form intuitions about physical properties?</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2022</span>
+                            <span class="badge badge-topic">Intuitive Physics</span>
+                            <span class="badge badge-citations">67 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        Eleanor Jade Jordan, Christoph J. Völter & Amanda M. Seed
+                    </div>
+                    
+                    <div class="pub-journal">
+                        Cognitive Neuropsychology, 2022
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            To explore the evolutionary origins of intuitive physics, we investigate whether capuchin monkeys' object exploration supports learning. Two capuchin groups experienced exploration sessions involving functional and non-functional objects. Monkeys spontaneously explored, performing actions which yielded functional information. At test, both groups chose functional objects above chance, revealing the promise of harnessing primates' natural exploratory tendencies to understand how they see the world.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="Do capuchin monkeys Sapajus apella use exploration to form intuitions about physical properties .pdf" class="btn-action" download>
                             📄 Download PDF
                         </a>
                         <a href="https://doi.org/10.1080/02643294.2022.example4" class="btn-action" target="_blank">
@@ -1381,10 +1713,256 @@
                     </div>
                 </div>
 
+                <!-- Publication 6 -->
+                <div class="publication-card" data-year="2022" data-topic="neural">
+                    <div class="pub-header">
+                        <h3>Physical understanding in neurodegenerative diseases</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2022</span>
+                            <span class="badge badge-topic">Neural Mechanisms</span>
+                            <span class="badge badge-citations">91 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        Josselin Baumard, Mathieu Lesourd, Léna Guézouli & François Osiurak
+                    </div>
+                    
+                    <div class="pub-journal">
+                        Cognitive Neuropsychology, 2022
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            This quantitative review gives an overview of physical understanding impairments in Alzheimer's disease, semantic dementia, and corticobasal syndrome. Results show that semantic dementia patients have apraxia of tool use due to semantic deficits, but normal performance in physical understanding tests. Actual deficits of physical understanding are probably observed only in late stages of neurodegenerative diseases, associated with functional loss.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="Physical understanding in neurodegenerative diseases.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1080/02643294.2022.example5" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 7 -->
+                <div class="publication-card" data-year="2021" data-topic="action">
+                    <div class="pub-header">
+                        <h3>What tool representation, intuitive physics, and action have in common: The brain's first-person physics engine</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2021</span>
+                            <span class="badge badge-topic">Action & Planning</span>
+                            <span class="badge badge-citations">157 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        <strong>Jason Fischer</strong> & Bradford Z. Mahon
+                    </div>
+                    
+                    <div class="pub-journal">
+                        HHS Public Access, 2021
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            An overlapping set of brain regions in parietal and frontal cortex are engaged by different types of tasks: making inferences about physical structure and dynamics, viewing or interacting with manipulable objects, and planning actions. We suggest this neural overlap reflects a common superordinate computation: a forward model of physical reasoning about how first-person actions will affect the world and be affected by unfolding physical events—the brain's first-person physics engine.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="What tool representation, intuitive physics, and action have in common: The Brain's First-Person Physics Engine.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1080/02643294.2021.example" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 8 -->
+                <div class="publication-card" data-year="2021" data-topic="neural">
+                    <div class="pub-header">
+                        <h3>A role for visual areas in physics simulations</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2021</span>
+                            <span class="badge badge-topic">Neural Mechanisms</span>
+                            <span class="badge badge-citations">124 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        Aarit Ahuja, Theresa M. Desrochers & David L. Sheinberg
+                    </div>
+                    
+                    <div class="pub-journal">
+                        HHS Public Access, 2021
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            To engage with the world, we must regularly make predictions about the outcomes of physical scenes. Using fMRI, we demonstrate that when participants predict how a ball will fall through an obstacle-filled display, motion-sensitive brain regions are activated. This activity resembles patterns that arise while participants perceive the ball's motion, suggesting that mental simulations recreate sensory depictions of how a physical scene is likely to unfold.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="A Role for Visual Areas in Physics Simulations.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1080/example" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 9 -->
+                <div class="publication-card" data-year="2021" data-topic="intuitive-physics">
+                    <div class="pub-header">
+                        <h3>Naturalistic embodied interactions elicit intuitive physical behaviour in accordance with Newtonian physics</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2021</span>
+                            <span class="badge badge-topic">Intuitive Physics</span>
+                            <span class="badge badge-citations">102 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        Nils Neupärtl, Fabian Tatai & Constantin A. Rothkopf
+                    </div>
+                    
+                    <div class="pub-journal">
+                        Cognitive Neuropsychology, 2021
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            Research on intuitive physics has predominantly investigated reasoning using binary forced choice responses. We investigated how the type of visuomotor response influences participants' beliefs about physical quantities. When sliding real pucks in a virtual environment, subjects adopted the non-linear control prescribed by Newtonian physics even without visual feedback. However, they used a linear heuristic with key presses on a monitor, suggesting that embodied, sensorimotor representations advantage physical reasoning.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="Naturalistic embodied interactions elicit intuitive physical behaviour in accordance with Newtonian physics.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1080/02643294.2021.example2" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 10 -->
+                <div class="publication-card" data-year="2020" data-topic="intuitive-physics">
+                    <div class="pub-header">
+                        <h3>When it all falls down: The relationship between intuitive physics and spatial cognition</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2020</span>
+                            <span class="badge badge-topic">Intuitive Physics</span>
+                            <span class="badge badge-citations">178 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        <strong>Alex Mitko</strong> & <strong>Jason Fischer</strong>
+                    </div>
+                    
+                    <div class="pub-journal">
+                        Springer Nature, 2020
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            What mental machinery underlies our ability to form physical inferences? Is intuitive physics merely the sum of its parts, or does it rest on devoted mental resources? We tested 100 online participants in an "Unstable Towers" task and measures of spatial cognition and working memory. We found a positive relationship between intuitive physics and spatial skills, but substantial individual differences in physical prediction ability that could not be accounted for by spatial measures or working memory, pointing toward the separability of intuitive physics from spatial cognition.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="When_it_all_falls_down:_the_relationship_between_intuitive_physics_and_spatial_cognition.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1038/s41235-020-00224-x" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Publication 11 -->
+                <div class="publication-card" data-year="2013" data-topic="perception">
+                    <div class="pub-header">
+                        <h3>Visual adaptation of the perception of causality</h3>
+                        <div class="pub-badges">
+                            <span class="badge badge-year">2013</span>
+                            <span class="badge badge-topic">Visual Perception</span>
+                            <span class="badge badge-citations">267 citations</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pub-authors">
+                        Martin Rolfs, Michael Dambacher & Patrick Cavanagh
+                    </div>
+                    
+                    <div class="pub-journal">
+                        Cell Press, 2013
+                    </div>
+                    
+                    <div class="pub-abstract">
+                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
+                            Show Abstract ▼
+                        </button>
+                        <div class="abstract-content">
+                            We easily recover the causal properties of visual events, enabling us to understand and predict changes in the physical world. Using visual adaptation—a powerful tool to uncover neural populations that specialize in specific visual features—we found that after prolonged viewing of causal collision events, subsequently viewed events were judged more often as noncausal. These negative aftereffects are spatially localized in retinotopic coordinates and reveal visual routines in retinotopic cortex that detect and adapt to cause and effect in collision stimuli.
+                        </div>
+                    </div>
+                    
+                    <div class="pub-actions">
+                        <a href="Visual Adaptation of the Perception of Causality.pdf" class="btn-action" download>
+                            📄 Download PDF
+                        </a>
+                        <a href="https://doi.org/10.1016/j.cub.2013.01.017" class="btn-action" target="_blank">
+                            🔗 DOI Link
+                        </a>
+                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
+                            📚 Google Scholar
+                        </a>
+                    </div>
+                </div>
+
             </div>
             
             <!-- Messaggio quando nessun risultato -->
-            <div id="noResults" style="display: none; text-align: center; padding: 3rem; color: #999;">
+            <div id="noResults" style="display: none;ext-align: center; padding: 3rem; color: #999;">
                 <p style="font-size: 1.2rem;">No publications found matching your filters.</p>
             </div>
         </section>
@@ -1403,7 +1981,6 @@
 
     </div>
 </div>
-
 <!-- PARTICIPATE PAGE -->
 <div id="participate" class="page">
     <div class="container">
