@@ -21,12 +21,12 @@
     --text-light: #4a4a4a;
     --accent: #7dd87d;
 }
-
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
             background: #3a3a3a;
+            overflow-x: hidden;  
         }
 
         /* Header */
@@ -80,18 +80,6 @@
         nav a.active {
             background: #7dd87d;
             color: white;
-        }
-
-        /* Mobile Menu */
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: 2px solid var(--cyan);
-            color: var(--cyan);
-            font-size: 1.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
         }
 
         /* Hero Section */
@@ -735,11 +723,11 @@
 /* Video Centrato Desktop */
 .video-divider {
     position: relative;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 30vh;
     overflow: hidden;
-    margin: 0;
-    margin-left: calc(-50vw + 50%);
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -862,7 +850,7 @@
         <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
         <nav>
             <ul id="menu">
-                <li><a href="#" onclick="showPage('home', this); return false;">Home</a></li>
+                <li><a href="#" onclick="showPage('home', this); return false;" class="active">HOME</a></li>
                 <li><a href="#" onclick="showPage('people', this); return false;">People</a></li>
                 <li><a href="#" onclick="showPage('research', this); return false;">Research</a></li>
                 <li><a href="#" onclick="showPage('publications', this); return false;">Publications</a></li>
@@ -1206,8 +1194,6 @@
     <p>&copy; 2026 The Dynamic Perception Lab. All rights reserved.</p>
     <p>University of Coimbra, Portugal</p>
 </footer>
-
-<script>
 <script>
     function showPage(pageId) {
         // Hide all pages
