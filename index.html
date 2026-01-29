@@ -171,11 +171,11 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
-            .research-icon {
+        .research-icon {
             width: 80px;
             height: 80px;
             margin-bottom: 1.5rem;
-            background: transparent;  ← Nessuno sfondo!
+            background: transparent;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -604,662 +604,251 @@
                 grid-template-columns: 1fr;
             }
         }
+
         /* CSS PER PUBLICATIONS AVANZATE */
-/* Aggiungi questo CSS al tuo <style> esistente */
+        .publication-filters {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #4a4a4a;
+            border-radius: 10px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-size: 0.9rem;
+            color: #7dd87d;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-group select,
+        .filter-group input[type="text"] {
+            padding: 0.7rem 1rem;
+            border: 2px solid #5a5a5a;
+            border-radius: 6px;
+            background: #3a3a3a;
+            color: #ffffff;
+            font-size: 1rem;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .filter-group select:focus,
+        .filter-group input[type="text"]:focus {
+            outline: none;
+            border-color: #7dd87d;
+        }
+
+        /* Card Pubblicazione */
+        .publication-card {
+            background: #4a4a4a;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid #7dd87d;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .publication-card:hover {
+            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+            transform: translateY(-3px);
+        }
+
+        .pub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pub-header h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .pub-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+
+        .badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-year {
+            background: #5a5a5a;
+            color: #ffffff;
+        }
+
+        .badge-topic {
+            background: #7dd87d;
+            color: #ffffff;
+        }
+
+        .badge-citations {
+            background: #6fcfe7;
+            color: #ffffff;
+        }
+
+        .pub-authors {
+            color: #d0d0d0;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .pub-authors strong {
+            color: #7dd87d;
+        }
+
+        .pub-journal {
+            color: #7dd87d;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* Azioni Pubblicazione */
+        .pub-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .btn-action {
+            display: inline-block;
+            padding: 0.7rem 1.2rem;
+            background: #3a3a3a;
+            color: #7dd87d;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 2px solid #5a5a5a;
+            transition: all 0.3s ease;
+        }
+
+        .btn-action:hover {
+            background: #7dd87d;
+            color: #ffffff;
+            border-color: #7dd87d;
+            transform: translateY(-2px);
+        }
 
-/* Filtri Pubblicazioni */
-.publication-filters {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background: #4a4a4a;
-    border-radius: 10px;
-}
-
-.filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.filter-group label {
-    font-size: 0.9rem;
-    color: #7dd87d;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.filter-group select,
-.filter-group input[type="text"] {
-    padding: 0.7rem 1rem;
-    border: 2px solid #5a5a5a;
-    border-radius: 6px;
-    background: #3a3a3a;
-    color: #ffffff;
-    font-size: 1rem;
-    min-width: 200px;
-    transition: all 0.3s ease;
-}
-
-.filter-group select:focus,
-.filter-group input[type="text"]:focus {
-    outline: none;
-    border-color: #7dd87d;
-}
-
-/* Statistiche Pubblicazioni */
-.pub-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0 3rem 0;
-}
-
-.stat-box {
-    background: linear-gradient(135deg, #7dd87d, #6fcfe7);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.stat-number {
-    font-size: 3rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    font-size: 1rem;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Card Pubblicazione */
-.publication-card {
-    background: #4a4a4a;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 12px;
-    border-left: 5px solid #7dd87d;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-}
-
-.publication-card:hover {
-    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
-    transform: translateY(-3px);
-}
-
-.pub-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.pub-header h3 {
-    color: #ffffff;
-    font-size: 1.3rem;
-    line-height: 1.4;
-    flex: 1;
-}
-
-.pub-badges {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-}
-
-.badge {
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.badge-year {
-    background: #5a5a5a;
-    color: #ffffff;
-}
-
-.badge-topic {
-    background: #7dd87d;
-    color: #ffffff;
-}
-
-.badge-citations {
-    background: #6fcfe7;
-    color: #ffffff;
-}
-
-.pub-authors {
-    color: #d0d0d0;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-}
-
-.pub-authors strong {
-    color: #7dd87d;
-}
-
-.pub-journal {
-    color: #7dd87d;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-}
-
-/* Abstract Espandibile */
-.pub-abstract {
-    margin: 1.5rem 0;
-}
-
-.abstract-toggle {
-    background: #3a3a3a;
-    border: 2px solid #5a5a5a;
-    color: #7dd87d;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.abstract-toggle:hover {
-    background: #7dd87d;
-    color: #ffffff;
-    border-color: #7dd87d;
-}
-
-.abstract-content {
-    display: none;
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #3a3a3a;
-    border-left: 3px solid #7dd87d;
-    border-radius: 6px;
-    color: #d0d0d0;
-    line-height: 1.8;
-}
-
-.abstract-content.show {
-    display: block;
-    animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Azioni Pubblicazione */
-.pub-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
-}
-
-.btn-action {
-    display: inline-block;
-    padding: 0.7rem 1.2rem;
-    background: #3a3a3a;
-    color: #7dd87d;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border: 2px solid #5a5a5a;
-    transition: all 0.3s ease;
-}
-
-.btn-action:hover {
-    background: #7dd87d;
-    color: #ffffff;
-    border-color: #7dd87d;
-    transform: translateY(-2px);
-}
-
-/* Special Issue Box */
-.special-issue-box {
-    background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
-    padding: 3rem;
-    border-radius: 12px;
-    border: 2px solid #7dd87d;
-    text-align: center;
-}
-
-.special-issue-box h2 {
-    color: #7dd87d;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-}
-
-.special-issue-box h3 {
-    color: #ffffff;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.special-issue-box p {
-    color: #d0d0d0;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .publication-filters {
-        flex-direction: column;
-    }
-    
-    .filter-group select,
-    .filter-group input[type="text"] {
-        min-width: 100%;
-    }
-    
-    .pub-header {
-        flex-direction: column;
-    }
-    
-    .pub-badges {
-        justify-content: flex-start;
-    }
-    
-    .pub-actions {
-        flex-direction: column;
-    }
-    
-    .btn-action {
-        text-align: center;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
-    }
-}
-        /* CSS PER PUBLICATIONS AVANZATE */
-/* Aggiungi questo CSS al tuo <style> esistente */
-
-/* Filtri Pubblicazioni */
-.publication-filters {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background: #4a4a4a;
-    border-radius: 10px;
-}
-
-.filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.filter-group label {
-    font-size: 0.9rem;
-    color: #7dd87d;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.filter-group select,
-.filter-group input[type="text"] {
-    padding: 0.7rem 1rem;
-    border: 2px solid #5a5a5a;
-    border-radius: 6px;
-    background: #3a3a3a;
-    color: #ffffff;
-    font-size: 1rem;
-    min-width: 200px;
-    transition: all 0.3s ease;
-}
-
-.filter-group select:focus,
-.filter-group input[type="text"]:focus {
-    outline: none;
-    border-color: #7dd87d;
-}
-
-/* Statistiche Pubblicazioni */
-.pub-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0 3rem 0;
-}
-
-.stat-box {
-    background: linear-gradient(135deg, #7dd87d, #6fcfe7);
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.stat-number {
-    font-size: 3rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    font-size: 1rem;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Card Pubblicazione */
-.publication-card {
-    background: #4a4a4a;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 12px;
-    border-left: 5px solid #7dd87d;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-}
-
-.publication-card:hover {
-    box-shadow: 0 6px 25px rgba(0,0,0,0.4);
-    transform: translateY(-3px);
-}
-
-.pub-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.pub-header h3 {
-    color: #ffffff;
-    font-size: 1.3rem;
-    line-height: 1.4;
-    flex: 1;
-}
-
-.pub-badges {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-}
-
-.badge {
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.badge-year {
-    background: #5a5a5a;
-    color: #ffffff;
-}
-
-.badge-topic {
-    background: #7dd87d;
-    color: #ffffff;
-}
-
-.badge-citations {
-    background: #6fcfe7;
-    color: #ffffff;
-}
-
-.pub-authors {
-    color: #d0d0d0;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-}
-
-.pub-authors strong {
-    color: #7dd87d;
-}
-
-.pub-journal {
-    color: #7dd87d;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-}
-
-/* Abstract Espandibile */
-.pub-abstract {
-    margin: 1.5rem 0;
-}
-
-.abstract-toggle {
-    background: #3a3a3a;
-    border: 2px solid #5a5a5a;
-    color: #7dd87d;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.abstract-toggle:hover {
-    background: #7dd87d;
-    color: #ffffff;
-    border-color: #7dd87d;
-}
-
-.abstract-content {
-    display: none;
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #3a3a3a;
-    border-left: 3px solid #7dd87d;
-    border-radius: 6px;
-    color: #d0d0d0;
-    line-height: 1.8;
-}
-
-.abstract-content.show {
-    display: block;
-    animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Azioni Pubblicazione */
-.pub-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
-}
-
-.btn-action {
-    display: inline-block;
-    padding: 0.7rem 1.2rem;
-    background: #3a3a3a;
-    color: #7dd87d;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border: 2px solid #5a5a5a;
-    transition: all 0.3s ease;
-}
-
-.btn-action:hover {
-    background: #7dd87d;
-    color: #ffffff;
-    border-color: #7dd87d;
-    transform: translateY(-2px);
-}
-
-/* Special Issue Box */
-.special-issue-box {
-    background: linear-gradient(135deg, #4a4a4a, #3a3a3a);
-    padding: 3rem;
-    border-radius: 12px;
-    border: 2px solid #7dd87d;
-    text-align: center;
-}
-
-.special-issue-box h2 {
-    color: #7dd87d;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-}
-
-.special-issue-box h3 {
-    color: #ffffff;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.special-issue-box p {
-    color: #d0d0d0;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .publication-filters {
-        flex-direction: column;
-    }
-    
-    .filter-group select,
-    .filter-group input[type="text"] {
-        min-width: 100%;
-    }
-    
-    .pub-header {
-        flex-direction: column;
-    }
-    
-    .pub-badges {
-        justify-content: flex-start;
-    }
-    
-    .pub-actions {
-        flex-direction: column;
-    }
-    
-    .btn-action {
-        text-align: center;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
-    }
-}
         /* CSS PER SEZIONE RELATED RESEARCH */
-/* Aggiungi questo al tuo CSS esistente */
+        .related-research-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
 
-/* Related Research List */
-.related-research-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
+        .related-paper {
+            background: #4a4a4a;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #7dd87d;
+            transition: all 0.3s ease;
+        }
 
-.related-paper {
-    background: #4a4a4a;
-    padding: 2rem;
-    border-radius: 10px;
-    border-left: 4px solid #7dd87d;
-    transition: all 0.3s ease;
-}
+        .related-paper:hover {
+            background: #5a5a5a;
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(125, 216, 125, 0.2);
+        }
 
-.related-paper:hover {
-    background: #5a5a5a;
-    transform: translateX(5px);
-    box-shadow: 0 4px 15px rgba(125, 216, 125, 0.2);
-}
+        .related-paper h4 {
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+            line-height: 1.4;
+        }
 
-.related-paper h4 {
-    margin: 0 0 1rem 0;
-    font-size: 1.3rem;
-    line-height: 1.4;
-}
+        .related-paper h4 a {
+            color: #7dd87d;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-.related-paper h4 a {
-    color: #7dd87d;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+        .related-paper h4 a:hover {
+            color: #9ff09f;
+            text-decoration: underline;
+        }
 
-.related-paper h4 a:hover {
-    color: #9ff09f;
-    text-decoration: underline;
-}
+        .paper-authors {
+            color: #d0d0d0;
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            font-weight: 500;
+        }
 
-.paper-authors {
-    color: #d0d0d0;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    font-weight: 500;
-}
+        .paper-journal {
+            color: #7dd87d;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin: 0.5rem 0 1rem 0;
+        }
 
-.paper-journal {
-    color: #7dd87d;
-    font-size: 0.95rem;
-    font-style: italic;
-    margin: 0.5rem 0 1rem 0;
-}
+        .paper-summary {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+        }
 
-.paper-summary {
-    color: #b0b0b0;
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin: 0;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .related-paper {
-        padding: 1.5rem;
-    }
-    
-    .related-paper h4 {
-        font-size: 1.1rem;
-    }
-}
+        /* Responsive */
+        @media (max-width: 768px) {
+            .publication-filters {
+                flex-direction: column;
+            }
+            
+            .filter-group select,
+            .filter-group input[type="text"] {
+                min-width: 100%;
+            }
+            
+            .pub-header {
+                flex-direction: column;
+            }
+            
+            .pub-badges {
+                justify-content: flex-start;
+            }
+            
+            .pub-actions {
+                flex-direction: column;
+            }
+            
+            .btn-action {
+                text-align: center;
+            }
+            
+            .related-paper {
+                padding: 1.5rem;
+            }
+            
+            .related-paper h4 {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1296,7 +885,7 @@
     <div class="container">
         <section class="section">
             <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0;">
-                <strong>Our interaction with the physical world feels effortless, but it is anything but simple.</strong> From packing fragile groceries to stacking glassware or navigating a cluttered cabinet, every action we take depends on rapid predictions about stability, weight, balance, and motion. These predictions are generated continuously, online, and with remarkable precision—often without entering awareness. Seeing the world is only the first step; understanding how it will behave is what allows us to act..
+                <strong>Our interaction with the physical world feels effortless, but it is anything but simple.</strong> From packing fragile groceries to stacking glassware or navigating a cluttered cabinet, every action we take depends on rapid predictions about stability, weight, balance, and motion. These predictions are generated continuously, online, and with remarkable precision—often without entering awareness. Seeing the world is only the first step; understanding how it will behave is what allows us to act.
             </p>
         </section>
          
@@ -1308,7 +897,7 @@
                         <img src="brain.png" alt="Intuitive Physics">
                     </div>
                     <h3>Intuitive Physics</h3>
-                    <p>What are the mental algorithms that make these split-second physical judgments possible? How does the brain extract physical structure and dynamics from visual input, and how are these computations embedded within broader systems of perception, cognition, and action?.</p>
+                    <p>What are the mental algorithms that make these split-second physical judgments possible? How does the brain extract physical structure and dynamics from visual input, and how are these computations embedded within broader systems of perception, cognition, and action?</p>
                 </div>
                 <div class="research-card">
                     <div class="research-icon">
@@ -1477,11 +1066,8 @@
     </div>
 </div>
 
-<!-- RESEARCH PAGE CON SEZIONE "RELATED RESEARCH" -->
-<!-- Sostituisci la sezione Research nel tuo index.html -->
-
+<!-- RESEARCH PAGE -->
 <div id="research" class="page">
-    <!-- VIDEO BANNER -->
     <section class="video-divider">
         <video autoplay loop muted playsinline>
             <source src="kaplavideo2_U2VF4gHN.mp4" type="video/mp4">
@@ -1534,7 +1120,6 @@
             </div>
         </section>
 
-        <!-- NUOVA SEZIONE: RELATED RESEARCH -->
         <section class="section" style="margin-top: 4rem;">
             <h2 class="section-title">Related Research in the Field</h2>
             <p style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0; margin-bottom: 2rem;">
@@ -1628,15 +1213,11 @@
 </div>
 
 <!-- PUBLICATIONS PAGE - 26 ARTICOLI DI JASON FISCHER -->
-<!-- Sostituisci completamente la sezione Publications nel tuo index.html -->
-
 <div id="publications" class="page">
     <div class="container">
-        <!-- Header con filtri (NO STATISTICHE) -->
         <section class="section">
             <h2 class="section-title">Publications</h2>
             
-            <!-- Filtri -->
             <div class="publication-filters">
                 <div class="filter-group">
                     <label>Filter by Year:</label>
@@ -1662,7 +1243,6 @@
             </div>
         </section>
 
-        <!-- Lista Pubblicazioni -->
         <section class="section">
             <div id="publicationsList">
                 
@@ -2415,508 +1995,13 @@
 
             </div>
             
-            <!-- Messaggio quando nessun risultato -->
             <div id="noResults" style="display: none; text-align: center; padding: 3rem; color: #999;">
                 <p style="font-size: 1.2rem;">No publications found matching your filters.</p>
             </div>
         </section>
-
     </div>
 </div>
-                
-                <div class="filter-group">
-                    <label>Filter by Topic:</label>
-                    <select id="topicFilter" onchange="filterPublications()">
-                        <option value="all">All Topics</option>
-                        <option value="intuitive-physics">Intuitive Physics</option>
-                        <option value="perception">Visual Perception</option>
-                        <option value="action">Action & Planning</option>
-                        <option value="neural">Neural Mechanisms</option>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <input type="text" id="searchBox" placeholder="Search publications..." onkeyup="filterPublications()">
-                </div>
-            </div>
 
-        <!-- Lista Pubblicazioni -->
-        <section class="section">
-            <div id="publicationsList">
-                
-                <!-- Publication 1 -->
-                <div class="publication-card" data-year="2023" data-topic="perception">
-                    <div class="pub-header">
-                        <h3>Retinotopic adaptation reveals distinct categories of causal perception</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2023</span>
-                            <span class="badge badge-topic">Visual Perception</span>
-                            <span class="badge badge-citations">142 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        Jonathan F. Kominsky & Brian J. Scholl
-                    </div>
-                    
-                    <div class="pub-journal">
-                        Cognition, 2023
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            We can perceive not only low-level features of events such as color and motion, but also seemingly higher-level properties such as causality. While launching is often simply equated with causal perception, researchers have sometimes described other phenomena such as 'triggering' and 'entraining'. We used psychophysical methods to determine whether these labels really carve visual processing at its joints. Using retinotopically specific adaptation, we show that exposure to triggering yields adaptation for subsequent ambiguous launching displays, but exposure to entraining does not.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="Retinotopic_adaptation_reveals_distinct_categories_of_causal_perception.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1016/j.cognition.2023.example" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 2 -->
-                <div class="publication-card" data-year="2022" data-topic="intuitive-physics">
-                    <div class="pub-header">
-                        <h3>Partial mental simulation explains fallacies in physical reasoning</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2022</span>
-                            <span class="badge badge-topic">Intuitive Physics</span>
-                            <span class="badge badge-citations">89 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        Ilona Bass, Kevin A. Smith, Elizabeth Bonawitz & Tomer D. Ullman
-                    </div>
-                    
-                    <div class="pub-journal">
-                        Cognitive Neuropsychology, 2022
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            People can reason intuitively, efficiently, and accurately about everyday physical events. We suggest that people make use of partial simulation, mentally moving forward in time only parts of the world deemed relevant. We propose a novel partial simulation model, and test it on the physical conjunction fallacy. We find an excellent fit between our model's predictions and human performance, quantitatively and qualitatively accounting for deviations from optimal performance.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="Partial mental simulation explains fallacies in physical reasoning.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1080/02643294.2022.example" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 3 -->
-                <div class="publication-card" data-year="2022" data-topic="perception">
-                    <div class="pub-header">
-                        <h3>Cochlea to categories: The spatiotemporal dynamics of semantic auditory representations</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2022</span>
-                            <span class="badge badge-topic">Visual Perception</span>
-                            <span class="badge badge-citations">76 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        Matthew X. Lowe, Yalda Mohsenzadeh, Benjamin Lahner, Ian Charest, Aude Oliva & Santani Teng
-                    </div>
-                    
-                    <div class="pub-journal">
-                        Cognitive Neuropsychology, 2022
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            How does the auditory system categorize natural sounds? Combining MEG and fMRI scans of observers listening to naturalistic sounds, we found superior temporal responses beginning ~55 ms post-stimulus onset, spreading to extratemporal cortices by ~100 ms. Early acoustically-dominated representations trended systematically toward category dominance over time and space. Semantic category representation was spatially specific, with vocalizations preferentially distinguished in frontotemporal voice-selective regions.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="Cochlea to categories The spatiotemporal dynamics of semantic auditory representations.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1080/02643294.2022.example2" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 4 -->
-                <div class="publication-card" data-year="2022" data-topic="action">
-                    <div class="pub-header">
-                        <h3>Bottom-up and top-down modulation of route selection in imitation</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2022</span>
-                            <span class="badge badge-topic">Action & Planning</span>
-                            <span class="badge badge-citations">54 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        Alessia Tessari, Riccardo Proietti & Raffaella I. Rumiati
-                    </div>
-                    
-                    <div class="pub-journal">
-                        Cognitive Neuropsychology, 2022
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            The cognitive system selects the most appropriate action imitative process: a semantic process relying on long-term memory representations for known actions, and low-level visuomotor transformations for unknown actions. In this study, process selection was triggered contextually by presenting mixed known and new actions in predictable or unpredictable lists. Known actions were imitated faster than new actions in predictable lists only, showing how contextual factors modulate process selection.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="Bottom-up and top-down modulation of route selection in imitation.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1080/02643294.2022.example3" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 5 -->
-                <div class="publication-card" data-year="2022" data-topic="intuitive-physics">
-                    <div class="pub-header">
-                        <h3>Do capuchin monkeys (Sapajus apella) use exploration to form intuitions about physical properties?</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2022</span>
-                            <span class="badge badge-topic">Intuitive Physics</span>
-                            <span class="badge badge-citations">67 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        Eleanor Jade Jordan, Christoph J. Völter & Amanda M. Seed
-                    </div>
-                    
-                    <div class="pub-journal">
-                        Cognitive Neuropsychology, 2022
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            To explore the evolutionary origins of intuitive physics, we investigate whether capuchin monkeys' object exploration supports learning. Two capuchin groups experienced exploration sessions involving functional and non-functional objects. Monkeys spontaneously explored, performing actions which yielded functional information. At test, both groups chose functional objects above chance, revealing the promise of harnessing primates' natural exploratory tendencies to understand how they see the world.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="Do capuchin monkeys Sapajus apella use exploration to form intuitions about physical properties .pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1080/02643294.2022.example4" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 6 -->
-                <div class="publication-card" data-year="2022" data-topic="neural">
-                    <div class="pub-header">
-                        <h3>Physical understanding in neurodegenerative diseases</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2022</span>
-                            <span class="badge badge-topic">Neural Mechanisms</span>
-                            <span class="badge badge-citations">91 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        Josselin Baumard, Mathieu Lesourd, Léna Guézouli & François Osiurak
-                    </div>
-                    
-                    <div class="pub-journal">
-                        Cognitive Neuropsychology, 2022
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            This quantitative review gives an overview of physical understanding impairments in Alzheimer's disease, semantic dementia, and corticobasal syndrome. Results show that semantic dementia patients have apraxia of tool use due to semantic deficits, but normal performance in physical understanding tests. Actual deficits of physical understanding are probably observed only in late stages of neurodegenerative diseases, associated with functional loss.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="Physical understanding in neurodegenerative diseases.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1080/02643294.2022.example5" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 7 -->
-                <div class="publication-card" data-year="2021" data-topic="action">
-                    <div class="pub-header">
-                        <h3>What tool representation, intuitive physics, and action have in common: The brain's first-person physics engine</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2021</span>
-                            <span class="badge badge-topic">Action & Planning</span>
-                            <span class="badge badge-citations">157 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        <strong>Jason Fischer</strong> & Bradford Z. Mahon
-                    </div>
-                    
-                    <div class="pub-journal">
-                        HHS Public Access, 2021
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            An overlapping set of brain regions in parietal and frontal cortex are engaged by different types of tasks: making inferences about physical structure and dynamics, viewing or interacting with manipulable objects, and planning actions. We suggest this neural overlap reflects a common superordinate computation: a forward model of physical reasoning about how first-person actions will affect the world and be affected by unfolding physical events—the brain's first-person physics engine.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="What tool representation, intuitive physics, and action have in common: The Brain's First-Person Physics Engine.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1080/02643294.2021.example" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 8 -->
-                <div class="publication-card" data-year="2021" data-topic="neural">
-                    <div class="pub-header">
-                        <h3>A role for visual areas in physics simulations</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2021</span>
-                            <span class="badge badge-topic">Neural Mechanisms</span>
-                            <span class="badge badge-citations">124 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        Aarit Ahuja, Theresa M. Desrochers & David L. Sheinberg
-                    </div>
-                    
-                    <div class="pub-journal">
-                        HHS Public Access, 2021
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            To engage with the world, we must regularly make predictions about the outcomes of physical scenes. Using fMRI, we demonstrate that when participants predict how a ball will fall through an obstacle-filled display, motion-sensitive brain regions are activated. This activity resembles patterns that arise while participants perceive the ball's motion, suggesting that mental simulations recreate sensory depictions of how a physical scene is likely to unfold.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="A Role for Visual Areas in Physics Simulations.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1080/example" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 9 -->
-                <div class="publication-card" data-year="2021" data-topic="intuitive-physics">
-                    <div class="pub-header">
-                        <h3>Naturalistic embodied interactions elicit intuitive physical behaviour in accordance with Newtonian physics</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2021</span>
-                            <span class="badge badge-topic">Intuitive Physics</span>
-                            <span class="badge badge-citations">102 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        Nils Neupärtl, Fabian Tatai & Constantin A. Rothkopf
-                    </div>
-                    
-                    <div class="pub-journal">
-                        Cognitive Neuropsychology, 2021
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            Research on intuitive physics has predominantly investigated reasoning using binary forced choice responses. We investigated how the type of visuomotor response influences participants' beliefs about physical quantities. When sliding real pucks in a virtual environment, subjects adopted the non-linear control prescribed by Newtonian physics even without visual feedback. However, they used a linear heuristic with key presses on a monitor, suggesting that embodied, sensorimotor representations advantage physical reasoning.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="Naturalistic embodied interactions elicit intuitive physical behaviour in accordance with Newtonian physics.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1080/02643294.2021.example2" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 10 -->
-                <div class="publication-card" data-year="2020" data-topic="intuitive-physics">
-                    <div class="pub-header">
-                        <h3>When it all falls down: The relationship between intuitive physics and spatial cognition</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2020</span>
-                            <span class="badge badge-topic">Intuitive Physics</span>
-                            <span class="badge badge-citations">178 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        <strong>Alex Mitko</strong> & <strong>Jason Fischer</strong>
-                    </div>
-                    
-                    <div class="pub-journal">
-                        Springer Nature, 2020
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            What mental machinery underlies our ability to form physical inferences? Is intuitive physics merely the sum of its parts, or does it rest on devoted mental resources? We tested 100 online participants in an "Unstable Towers" task and measures of spatial cognition and working memory. We found a positive relationship between intuitive physics and spatial skills, but substantial individual differences in physical prediction ability that could not be accounted for by spatial measures or working memory, pointing toward the separability of intuitive physics from spatial cognition.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="When_it_all_falls_down:_the_relationship_between_intuitive_physics_and_spatial_cognition.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1038/s41235-020-00224-x" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Publication 11 -->
-                <div class="publication-card" data-year="2013" data-topic="perception">
-                    <div class="pub-header">
-                        <h3>Visual adaptation of the perception of causality</h3>
-                        <div class="pub-badges">
-                            <span class="badge badge-year">2013</span>
-                            <span class="badge badge-topic">Visual Perception</span>
-                            <span class="badge badge-citations">267 citations</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pub-authors">
-                        Martin Rolfs, Michael Dambacher & Patrick Cavanagh
-                    </div>
-                    
-                    <div class="pub-journal">
-                        Cell Press, 2013
-                    </div>
-                    
-                    <div class="pub-abstract">
-                        <button class="abstract-toggle" onclick="toggleAbstract(this)">
-                            Show Abstract ▼
-                        </button>
-                        <div class="abstract-content">
-                            We easily recover the causal properties of visual events, enabling us to understand and predict changes in the physical world. Using visual adaptation—a powerful tool to uncover neural populations that specialize in specific visual features—we found that after prolonged viewing of causal collision events, subsequently viewed events were judged more often as noncausal. These negative aftereffects are spatially localized in retinotopic coordinates and reveal visual routines in retinotopic cortex that detect and adapt to cause and effect in collision stimuli.
-                        </div>
-                    </div>
-                    
-                    <div class="pub-actions">
-                        <a href="Visual Adaptation of the Perception of Causality.pdf" class="btn-action" download>
-                            📄 Download PDF
-                        </a>
-                        <a href="https://doi.org/10.1016/j.cub.2013.01.017" class="btn-action" target="_blank">
-                            🔗 DOI Link
-                        </a>
-                        <a href="https://scholar.google.com" class="btn-action" target="_blank">
-                            📚 Google Scholar
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            
-            <!-- Messaggio quando nessun risultato -->
-            <div id="noResults" style="display: none;ext-align: center; padding: 3rem; color: #999;">
-                <p style="font-size: 1.2rem;">No publications found matching your filters.</p>
-            </div>
-        </section>
-
-        <!-- Special Issue -->
-        <section class="section">
-            <div class="special-issue-box">
-                <h2>Special Issue</h2>
-                <h3>Intuitive Physics Within the Landscape of the Mind</h3>
-                <p>A special issue in <em>Cognitive Neuropsychology</em> guest edited by Jason Fischer, exploring how physical understanding fits within broader cognitive architecture.</p>
-                <a href="https://www.tandfonline.com/toc/pcgn20/current" class="btn-action" target="_blank">
-                    View Special Issue →
-                </a>
-            </div>
-        </section>
-
-    </div>
-</div>
 <!-- PARTICIPATE PAGE -->
 <div id="participate" class="page">
     <div class="container">
@@ -2963,18 +2048,15 @@
 
 <script>
     function showPage(pageId, element) {
-        // Nascondi tutte le pagine
         document.querySelectorAll('.page').forEach(page => {
             page.classList.remove('active');
         });
         
-        // Mostra la pagina selezionata
         const selectedPage = document.getElementById(pageId);
         if (selectedPage) {
             selectedPage.classList.add('active');
         }
         
-        // Aggiorna link attivo
         document.querySelectorAll('nav a').forEach(link => {
             link.classList.remove('active');
         });
@@ -2982,10 +2064,8 @@
             element.classList.add('active');
         }
         
-        // Scroll to top
         window.scrollTo({top: 0, behavior: 'smooth'});
         
-        // Chiudi menu mobile
         const menu = document.getElementById('menu');
         if (menu) {
             menu.classList.remove('active');
@@ -2998,71 +2078,36 @@
             menu.classList.toggle('active');
         }
     }
-    /* JAVASCRIPT PER PUBLICATIONS */
-/* Aggiungi questo nel tag <script> alla fine del tuo index.html */
 
-// Toggle Abstract
-function toggleAbstract(button) {
-    const abstractContent = button.nextElementSibling;
-    const isShowing = abstractContent.classList.contains('show');
-    
-    if (isShowing) {
-        abstractContent.classList.remove('show');
-        button.textContent = 'Show Abstract ▼';
-    } else {
-        abstractContent.classList.add('show');
-        button.textContent = 'Hide Abstract ▲';
-    }
-}
-
-// Filter Publications
-function filterPublications() {
-    const yearFilter = document.getElementById('yearFilter').value;
-    const topicFilter = document.getElementById('topicFilter').value;
-    const searchBox = document.getElementById('searchBox').value.toLowerCase();
-    
-    const publications = document.querySelectorAll('.publication-card');
-    let visibleCount = 0;
-    
-    publications.forEach(pub => {
-        const year = pub.getAttribute('data-year');
-        const topic = pub.getAttribute('data-topic');
-        const text = pub.textContent.toLowerCase();
+    function filterPublications() {
+        const yearFilter = document.getElementById('yearFilter').value;
+        const searchBox = document.getElementById('searchBox').value.toLowerCase();
         
-        let showYear = yearFilter === 'all' || year === yearFilter;
-        let showTopic = topicFilter === 'all' || topic === topicFilter;
-        let showSearch = searchBox === '' || text.includes(searchBox);
+        const publications = document.querySelectorAll('.publication-card');
+        let visibleCount = 0;
         
-        if (showYear && showTopic && showSearch) {
-            pub.style.display = 'block';
-            visibleCount++;
+        publications.forEach(pub => {
+            const year = pub.getAttribute('data-year');
+            const text = pub.textContent.toLowerCase();
+            
+            let showYear = yearFilter === 'all' || year === yearFilter;
+            let showSearch = searchBox === '' || text.includes(searchBox);
+            
+            if (showYear && showSearch) {
+                pub.style.display = 'block';
+                visibleCount++;
+            } else {
+                pub.style.display = 'none';
+            }
+        });
+        
+        const noResults = document.getElementById('noResults');
+        if (visibleCount === 0) {
+            noResults.style.display = 'block';
         } else {
-            pub.style.display = 'none';
+            noResults.style.display = 'none';
         }
-    });
-    
-    // Mostra messaggio se non ci sono risultati
-    const noResults = document.getElementById('noResults');
-    if (visibleCount === 0) {
-        noResults.style.display = 'block';
-    } else {
-        noResults.style.display = 'none';
     }
-    
-    // Aggiorna contatore pubblicazioni visibili
-    const totalPubs = document.getElementById('totalPubs');
-    if (totalPubs) {
-        totalPubs.textContent = visibleCount;
-    }
-}
-
-// Reset filtri
-function resetFilters() {
-    document.getElementById('yearFilter').value = 'all';
-    document.getElementById('topicFilter').value = 'all';
-    document.getElementById('searchBox').value = '';
-    filterPublications();
-}
 </script>
 
 </body>
