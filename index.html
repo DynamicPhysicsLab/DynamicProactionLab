@@ -849,6 +849,98 @@
                 font-size: 1.1rem;
             }
         }
+        /* CSS PER RESEARCH PAGE - FONT SOTTILE E IMMAGINI INTEGRATE */
+/* Aggiungi questo al tuo CSS esistente */
+
+/* Research Text Content - Font sottile */
+.research-text-content {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #d0d0d0;
+    font-weight: 300; /* Font più sottile */
+}
+
+.research-text-content p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    font-weight: 300; /* Font più sottile */
+}
+
+.research-text-content h3 {
+    color: #7dd87d;
+    font-size: 1.5rem;
+    margin: 2.5rem 0 1.5rem 0;
+    font-weight: 500; /* Anche i titoli più sottili */
+    border-bottom: 2px solid #7dd87d;
+    padding-bottom: 0.5rem;
+}
+
+/* Immagini inline integrate nel testo */
+.research-inline-image {
+    float: right;
+    width: 40%;
+    max-width: 400px;
+    margin: 0 0 1.5rem 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.research-inline-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    background: transparent; /* Sfondo trasparente */
+    object-fit: contain; /* Mantiene proporzioni senza tagli */
+}
+
+/* Alterni le immagini destra/sinistra */
+.research-inline-image:nth-of-type(2n) {
+    float: left;
+    margin: 0 2rem 1.5rem 0;
+}
+
+/* Clear float dopo ogni sezione */
+.research-text-content h3 {
+    clear: both;
+}
+
+/* Related Research - Font sottile */
+.related-research-list p {
+    font-weight: 300;
+}
+
+/* Altezza video Publications (stessa di Research) */
+#publications .video-divider {
+    height: 20vh;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .research-text-content {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .research-text-content h3 {
+        font-size: 1.3rem;
+        margin: 2rem 0 1rem 0;
+    }
+    
+    /* Su mobile le immagini diventano full width */
+    .research-inline-image,
+    .research-inline-image:nth-of-type(2n) {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 1.5rem 0;
+    }
+    
+    #publications .video-divider {
+        height: 18vh;
+    }
+}
     </style>
 </head>
 <body>
@@ -1039,66 +1131,70 @@
     </div>
 </div>
 
-<!-- RESEARCH PAGE -->
+<!-- RESEARCH PAGE - FONT SOTTILE E IMMAGINI INTEGRATE -->
+<!-- Sostituisci la sezione Research nel tuo index.html -->
+
 <div id="research" class="page">
+    <!-- VIDEO BANNER -->
     <section class="video-divider">
         <video autoplay loop muted playsinline>
-            <source src="researchvideopallarotante.mp4" type="video/mp4">
+            <source src="kaplavideo2_U2VF4gHN.mp4" type="video/mp4">
         </video>
     </section>
     
     <div class="container">
         <section class="section">
             <h2 class="section-title">Research</h2>
-            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; color: #e0e0e0;">
-                <strong>Engaging with our everyday environments requires an understanding of their physical structure and dynamics. In daily life, we continually assess how the objects around us rest on and support each other, how they could be acted on, and how they will behave when they fall, roll, or collide. We build up our physical intuitions with amazing speed, and with sufficient detail to guide precise actions. The research underway in our lab is aimed at revealing the mental processes behind our intuitive understanding of the physical world. We are working to characterize the computations carried out by the intuitive physics system and establish how intuitive physics interacts with other cognitive and perceptual processes. Are there dedicated resources for intuitive physics in the mind? Our recent and ongoing work has provided evidence for a mental physics engine that we recruit to reason about a wide variety of physical scenarios. 
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0;">
-                Are there mental algorithms devoted to processing specific events (e.g., collisions) or specific scene contents (e.g., rigid bodies vs. soft bodies, fluids, cloth, and others)? How do intuitive physics abilities change with aging and experience? Ongoing work in the lab is studying how extensive training in perceiving and predicting specific physical scenarios (e.g., planning a billiards shot or arranging plates on a service tray) leads to improvements in physical reasoning, and whether such improvements transfer to untrained tasks.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0;">
-                Understanding how intuitive physics is embedded within these broader representational systems is essential for explaining how humans achieve such robust and adaptive interactions with the physical world
-            </p>
-        </section>
+            
+            <!-- TESTO CON IMMAGINI INTEGRATE - FONT SOTTILE -->
+            <div class="research-text-content">
+                <p>Engaging with everyday environments requires far more than passive perception: it depends on a continuous and highly structured understanding of the physical properties and dynamics that govern the world around us. In daily life, humans effortlessly evaluate how objects rest on and support one another, anticipate how they may be acted upon, and predict how they will behave when they fall, roll, collide, or deform. These judgments are typically fast, intuitive, and remarkably precise, allowing us to plan and execute complex actions in real time. Despite their apparent ease, such abilities rely on sophisticated internal representations and computations that operate largely outside conscious awareness.</p>
 
-        <section class="section">
-            <div class="image-grid">
-                <img src="researchimg.png" alt="Research">
-                <img src="researchimg1.png" alt="Research">
-                <img src="researchimg2.png" alt="Research">
+                <!-- IMMAGINE 1 INTEGRATA -->
+                <div class="research-inline-image">
+                    <img src="pool-physics.png" alt="Physical prediction in billiards">
+                </div>
+
+                <p>A growing body of research suggests that these competencies are supported by an intuitive physics system—a set of cognitive mechanisms that enable people to reason about physical events in a manner that is approximate, probabilistic, and task-adaptive rather than strictly veridical. Work in cognitive science and neuroscience has increasingly converged on the idea that humans rely on internal generative models of the physical world, sometimes described as a mental physics engine, to simulate and predict physical outcomes. Rather than explicitly calculating physical equations, this system appears to operate by simulating likely future states of the world, integrating perceptual input with prior knowledge and experience.</p>
+
+                <p>Research in our lab is aimed at characterizing the mental processes and computations underlying this intuitive understanding of physical structure and dynamics. Specifically, we investigate what kinds of internal operations constitute the core of intuitive physics, how these operations are recruited across different physical scenarios, and how they interact with other cognitive systems. Recent and ongoing work provides evidence that physical reasoning is not monolithic, but instead relies on a flexible combination of perceptual analysis, memory-based expectations, and simulation-like processes that are dynamically modulated by task demands and context.</p>
+
+                <!-- IMMAGINE 2 INTEGRATA -->
+                <div class="research-inline-image">
+                    <img src="car-balance.jpg" alt="Balance and stability">
+                </div>
+
+                <h3>Dedicated Cognitive Resources</h3>
+                
+                <p>One central question concerns whether there are dedicated cognitive resources for intuitive physics. Behavioral and neurocognitive evidence suggests that reasoning about physical events engages partially specialized mechanisms that are distinct from, yet closely integrated with, systems for perception, attention, and action planning. For example, studies on physical scene understanding indicate that predictive processing of object interactions can occur rapidly and sometimes independently of explicit attentional focus, while still being influenced by top-down goals and expectations. This raises the possibility that intuitive physics relies on domain-specific representations that are nevertheless embedded within broader perceptual–cognitive architectures.</p>
+
+                <h3>Computational Structure</h3>
+                
+                <p>Another key line of inquiry addresses the computational structure of the intuitive physics system. Are there mental algorithms tailored to specific classes of events, such as collisions or balance, or to specific types of materials, such as rigid bodies, fluids, or deformable objects like cloth? Evidence from both vision research and action-related studies suggests that different physical properties may be processed with varying degrees of abstraction and sensory grounding.</p>
+
+                <!-- IMMAGINE 3 INTEGRATA -->
+                <div class="research-inline-image">
+                    <img src="water-dynamics.jpg" alt="Fluid dynamics">
+                </div>
+
+                <h3>Embodied and Multimodal Representations</h3>
+                
+                <p>Our work also explores how physical reasoning is grounded in embodied interactions with the world. Studies have demonstrated that participants adopt control strategies consistent with Newtonian physics when using natural, sensorimotor interactions, but resort to simpler heuristics when interactions are more abstract. This suggests that the format of interaction—whether embodied or symbolic—fundamentally shapes the nature of physical reasoning.</p>
+
+                <h3>Development and Evolution</h3>
+                
+                <p>Our work also explores how intuitive physics abilities change across the lifespan and with experience. Extensive training in perceiving and predicting specific physical scenarios—such as planning a billiards shot, balancing objects on a tray, or anticipating the movement of tools—can lead to measurable improvements in physical reasoning. A crucial question is whether such improvements reflect fine-tuning of general-purpose simulation mechanisms or the acquisition of more specialized representations tied to particular contexts.</p>
+
+                <h3>Interactions with Perception and Memory</h3>
+                
+                <p>Finally, an important focus of our research concerns how intuitive physics interacts with perception, attention, and memory. Physical predictions are deeply intertwined with perceptual representations: sensory input constrains simulation, while prior knowledge and expectations shape how physical scenes are interpreted. Understanding how intuitive physics is embedded within these broader representational systems is essential for explaining how humans achieve such robust and adaptive interactions with the physical world.</p>
             </div>
         </section>
 
-<section class="section">
-            <h2 class="section-title">Key research areas</h2>
-            <div class="research-grid">
-                <div class="research-card">
-                    <div class="research-icon">
-                        <img src="brain.png" alt="Intuitive Physics">
-                    </div>
-                    <h3>Intuitive Physics</h3>
-                    <p>What are the mental algorithms that make these split-second physical judgments possible? How does the brain extract physical structure and dynamics from visual input, and how are these computations embedded within broader systems of perception, cognition, and action?</p>
-                </div>
-                <div class="research-card">
-                    <div class="research-icon">
-                        <img src="tech.png" alt="Visual Perception">
-                    </div>
-                    <h3>Visual Perception</h3>
-                    <p>At the Dynamic Perception Lab, we study the architecture of intuitive physics in the mind and brain. Using psychophysics, computational modeling, and functional neuroimaging, we investigate how visual information is transformed into physical knowledge that supports prediction, decision-making, and skilled action in real-world environments.</p>
-                </div>
-                <div class="research-card">
-                    <div class="research-icon">
-                        <img src="dice.png" alt="Physical Prediction">
-                    </div>
-                    <h3>Physical Prediction</h3>
-                    <p>Understanding how the mind predicts trajectories, stability, and physical outcomes. The brain's physics engine that guides our interactions with dynamic daily environments.</p>
-                </div>
-            </div>
-        </section>
-
+        <!-- SEZIONE RELATED RESEARCH -->
         <section class="section" style="margin-top: 4rem;">
             <h2 class="section-title">Related Research in the Field</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0; margin-bottom: 2rem;">
+            <p style="font-size: 1.05rem; line-height: 1.9; color: #d0d0d0; margin-bottom: 2rem; font-weight: 300;">
                 The study of intuitive physics draws on insights from multiple disciplines. Below are key papers that have shaped our understanding of how the mind represents and reasons about physical interactions:
             </p>
             
@@ -1189,10 +1285,20 @@
 </div>
 
 <!-- PUBLICATIONS PAGE - 26 ARTICOLI DI JASON FISCHER -->
-<div id="publications" class="page">
+    <div id="people" class="page">
+    <section class="video-divider">
+        <video autoplay loop muted playsinline>
+            <source src="publicationsvideo.mp4" type="video/mp4">
+        </video>
+    </section>
+        
     <div class="container">
         <section class="section">
             <h2 class="section-title">Publications</h2>
+            <p style="font-size: 1.05rem; line-height: 1.9; color: #d0d0d0; margin-bottom: 3rem; text-align: justify;">
+                This page collects publications related to research on intuitive physics and physical reasoning. The work presented here investigates how humans perceive and predict physical events, form expectations about object interactions, and use physical knowledge to guide action in everyday environments. Using primarily behavioral and cognitive approaches, these studies examine the interaction between perceptual input, prior experience, and predictive mechanisms in shaping physical understanding. Together, these publications contribute to a broader account of how intuitive knowledge of the physical world is structured, learned, and applied across different tasks and contexts.
+            </p>
+                                        
             
             <div class="publication-filters">
                 <div class="filter-group">
