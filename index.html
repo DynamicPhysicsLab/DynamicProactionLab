@@ -12,32 +12,33 @@
         }
 
         :root {
-            --cyan: #7dd87d;
-            --white: #ffffff;
-            --black: #1a1a1a;
-            --dark-bg: #1a1a1a;
-            --light-bg: #f5f5f5;
-            --text-dark: #1a1a1a;
-            --text-light: #4a4a4a;
-            --accent: #7dd87d;
+            --aqua: #6fcfe7;
+            --beige-dark: #c4b5a0;
+            --beige-light: #d4c5b0;
+            --grey-darkest: #2a2a2a;
+            --grey-dark: #3a3a3a;
+            --grey-medium: #4a4a4a;
+            --grey-light: #6a6a6a;
+            --text-light: #e0e0e0;
         }
         
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: #3a3a3a;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-light);
+            background: var(--grey-medium);
             overflow-x: hidden;
         }
 
         /* Header */
         header {
-            background: #2a2a2a;
-            border-bottom: 3px solid var(--cyan);
+            background: linear-gradient(135deg, var(--grey-darkest), #1a1a1a);
+            border-bottom: 2px solid var(--aqua);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
         .header-content {
@@ -50,51 +51,103 @@
         }
 
         .logo-text {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, var(--cyan), var(--white));
+            font-size: 1.6rem;
+            font-weight: 200;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--aqua), var(--beige-light));
             -webkit-text-fill-color: transparent;
             background-clip: text;
             -webkit-background-clip: text;
+            cursor: pointer;
+            user-select: none;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
-            color: #ffffff;
+            color: var(--beige-light);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 300;
             padding: 0.5rem 1rem;
             border-radius: 4px;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
         }
 
         nav a:hover {
-            background: #7dd87d;
+            background: var(--aqua);
             color: white;
+            transform: translateY(-2px);
         }
 
         nav a.active {
-            background: #7dd87d;
+            background: var(--aqua);
             color: white;
         }
 
+        /* Mobile Toggle Animato ☰ → ✕ */
         .mobile-toggle {
             display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+            position: relative;
+            transform: rotate(0deg);
+            transition: .5s ease-in-out;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--aqua);
+            border-radius: 3px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .mobile-toggle span:nth-child(1) {
+            top: 0px;
+        }
+
+        .mobile-toggle span:nth-child(2) {
+            top: 10px;
+        }
+
+        .mobile-toggle span:nth-child(3) {
+            top: 20px;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            top: 10px;
+            transform: rotate(135deg);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            top: 10px;
+            transform: rotate(-135deg);
         }
 
         /* Video Banner */
         .video-divider {
             position: relative;
             width: 100%;
-            max-width: 100%;
             height: 30vh;
             overflow: hidden;
             margin: 0;
@@ -105,13 +158,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.75) saturate(0.4) contrast(1.05);
+            filter: brightness(0.6) saturate(0.7) contrast(1.1);
         }
 
-        /* Altezza specifica per Research, Publications e Participate */
         #research .video-divider,
         #publications .video-divider,
-        #participate .video-divider {
+        #participate .video-divider,
+        #journal .video-divider {
             height: 20vh;
         }
 
@@ -127,10 +180,10 @@
         }
 
         .logo-center img {
-            width: 450px;
+            width: 400px;
             max-width: 90%;
             height: auto;
-            filter: drop-shadow(0 4px 20px rgba(125, 216, 125, 0.5));
+            filter: drop-shadow(0 6px 30px rgba(111, 207, 231, 0.4));
         }
 
         /* Main Content */
@@ -138,7 +191,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
-            background: #2d2d2d;
+            background: var(--grey-medium);
         }
 
         .section {
@@ -146,18 +199,21 @@
         }
 
         .section p {
-            color: #e0e0e0;
+            color: var(--text-light);
+            font-weight: 300;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+            font-weight: 200;
             margin-bottom: 2rem;
-            color: #7dd87d;
-            border-left: 5px solid #7dd87d;
+            color: var(--aqua);
+            border-left: 3px solid var(--aqua);
             padding-left: 1.5rem;
+            letter-spacing: 1px;
         }
 
-        /* Research Areas */
+        /* Research Grid */
         .research-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -166,17 +222,18 @@
         }
 
         .research-card {
-            background: #4a4a4a;
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--grey-dark), var(--grey-medium));
+            border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
-            border-top: 4px solid var(--cyan);
+            border-top: 3px solid var(--aqua);
         }
 
         .research-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(111, 207, 231, 0.3);
+            background: linear-gradient(135deg, var(--grey-medium), var(--grey-light));
         }
 
         .research-icon {
@@ -187,24 +244,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
         }
 
         .research-icon img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            filter: brightness(1.2);
         }
 
         .research-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 300;
             margin-bottom: 1rem;
-            color: #7dd87d;
+            color: var(--beige-light);
         }
 
         .research-card p {
-            color: #d0d0d0;
+            color: var(--text-light);
             line-height: 1.8;
+            font-weight: 300;
         }
 
         /* Image Grid */
@@ -219,8 +278,8 @@
             width: 100%;
             height: 250px;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
             transition: transform 0.3s ease;
         }
 
@@ -228,48 +287,44 @@
             transform: scale(1.05);
         }
 
-        /* Research Text Content - Font sottile */
+        /* Research Text Content */
         .research-text-content {
             font-size: 1.05rem;
             line-height: 1.9;
-            color: #d0d0d0;
+            color: var(--text-light);
             font-weight: 300;
         }
 
         .research-text-content p {
             margin-bottom: 1.5rem;
             text-align: justify;
-            font-weight: 300;
         }
 
         .research-text-content h3 {
-            color: #7dd87d;
+            color: var(--aqua);
             font-size: 1.5rem;
+            font-weight: 300;
             margin: 2.5rem 0 1.5rem 0;
-            font-weight: 500;
-            border-bottom: 2px solid #7dd87d;
+            border-bottom: 2px solid var(--beige-dark);
             padding-bottom: 0.5rem;
             clear: both;
         }
 
-        /* Immagini inline integrate nel testo */
         .research-inline-image {
             float: right;
             width: 40%;
             max-width: 400px;
             margin: 0 0 1.5rem 2rem;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         }
 
         .research-inline-image img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 10px;
-            background: transparent;
-            object-fit: contain;
+            border-radius: 12px;
         }
 
         .research-inline-image:nth-of-type(2n) {
@@ -285,11 +340,12 @@
         }
 
         .team-section h2 {
-            font-size: 2.5em;
+            font-size: 2.2rem;
+            font-weight: 200;
             text-align: center;
             margin-bottom: 60px;
-            color: #7dd87d;
-            font-weight: 700;
+            color: var(--aqua);
+            letter-spacing: 2px;
         }
 
         .team-member.pi {
@@ -298,9 +354,9 @@
             gap: 40px;
             margin-bottom: 80px;
             padding: 40px;
-            background: #3a3a3a;
+            background: linear-gradient(135deg, var(--grey-dark), var(--grey-medium));
             border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.4);
         }
 
         .team-member.pi img {
@@ -309,6 +365,7 @@
             border-radius: 50%;
             object-fit: cover;
             flex-shrink: 0;
+            border: 3px solid var(--aqua);
         }
 
         .team-grid {
@@ -319,16 +376,16 @@
         }
 
         .team-member {
-            background: #3a3a3a;
+            background: linear-gradient(135deg, var(--grey-dark), var(--grey-medium));
             border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
         }
 
         .team-member:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 35px rgba(111, 207, 231, 0.3);
         }
 
         .team-grid .team-member img {
@@ -338,31 +395,34 @@
             object-fit: cover;
             margin: 0 auto 20px;
             display: block;
+            border: 2px solid var(--aqua);
         }
 
         .member-info h3 {
-            font-size: 1.5em;
+            font-size: 1.4em;
+            font-weight: 300;
             margin: 15px 0 5px 0;
-            color: #7dd87d;
+            color: var(--beige-light);
         }
 
         .team-member.pi .member-info h3 {
-            font-size: 2em;
+            font-size: 1.8em;
         }
 
         .member-info .role {
-            font-size: 1em;
-            color: #7dd87d;
-            font-weight: 600;
+            font-size: 0.95em;
+            color: var(--aqua);
+            font-weight: 400;
             margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .member-info .bio {
-            font-size: 1em;
+            font-size: 0.95em;
             line-height: 1.7;
-            color: #d0d0d0;
+            color: var(--text-light);
+            font-weight: 300;
         }
 
         /* Alumni Section */
@@ -373,17 +433,19 @@
         }
 
         .alumni-section h2 {
-            font-size: 2.5em;
+            font-size: 2.2rem;
+            font-weight: 200;
             text-align: center;
             margin-bottom: 20px;
-            color: #7dd87d;
-            font-weight: 700;
+            color: var(--aqua);
+            letter-spacing: 2px;
         }
 
         .alumni-intro {
             text-align: center;
-            font-size: 1.1em;
-            color: #d0d0d0;
+            font-size: 1.05em;
+            color: var(--text-light);
+            font-weight: 300;
             margin-bottom: 50px;
             max-width: 700px;
             margin-left: auto;
@@ -397,17 +459,17 @@
         }
 
         .alumni-card {
-            background: #4a4a4a;
+            background: linear-gradient(135deg, var(--grey-dark), var(--grey-medium));
             border-radius: 12px;
             padding: 25px 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
         }
 
         .alumni-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 25px rgba(111, 207, 231, 0.3);
         }
 
         .alumni-card img {
@@ -417,37 +479,41 @@
             object-fit: cover;
             margin: 0 auto 15px;
             display: block;
+            border: 2px solid var(--aqua);
         }
 
         .alumni-card h3 {
-            font-size: 1.1em;
+            font-size: 1.05em;
+            font-weight: 300;
             margin: 10px 0 5px 0;
-            color: #ffffff;
+            color: var(--beige-light);
         }
 
         .alumni-role {
-            font-size: 0.9em;
-            color: #7dd87d;
-            font-weight: 600;
+            font-size: 0.85em;
+            color: var(--aqua);
+            font-weight: 400;
             margin: 5px 0;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
         }
 
         .alumni-period {
-            font-size: 0.85em;
-            color: #999;
+            font-size: 0.8em;
+            color: var(--text-light);
             margin: 5px 0 10px 0;
+            font-weight: 300;
         }
 
         .alumni-now {
-            font-size: 0.9em;
-            color: #d0d0d0;
+            font-size: 0.85em;
+            color: var(--text-light);
             line-height: 1.5;
             margin-top: 10px;
             padding-top: 10px;
-            border-top: 1px solid #5a5a5a;
+            border-top: 1px solid var(--grey-light);
             font-style: italic;
+            font-weight: 300;
         }
 
         /* Publications */
@@ -457,8 +523,8 @@
             flex-wrap: wrap;
             margin-bottom: 2rem;
             padding: 1.5rem;
-            background: #4a4a4a;
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--grey-dark), var(--grey-medium));
+            border-radius: 12px;
         }
 
         .filter-group {
@@ -468,21 +534,22 @@
         }
 
         .filter-group label {
-            font-size: 0.9rem;
-            color: #7dd87d;
-            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--beige-light);
+            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .filter-group select,
         .filter-group input[type="text"] {
             padding: 0.7rem 1rem;
-            border: 2px solid #5a5a5a;
+            border: 1px solid var(--grey-light);
             border-radius: 6px;
-            background: #3a3a3a;
-            color: #ffffff;
-            font-size: 1rem;
+            background: var(--grey-darkest);
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 300;
             min-width: 200px;
             transition: all 0.3s ease;
         }
@@ -490,21 +557,22 @@
         .filter-group select:focus,
         .filter-group input[type="text"]:focus {
             outline: none;
-            border-color: #7dd87d;
+            border-color: var(--aqua);
+            box-shadow: 0 0 0 3px rgba(111, 207, 231, 0.2);
         }
 
         .publication-card {
-            background: #4a4a4a;
+            background: linear-gradient(135deg, var(--grey-dark), var(--grey-medium));
             padding: 2rem;
             margin-bottom: 2rem;
             border-radius: 12px;
-            border-left: 5px solid #7dd87d;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+            border-left: 4px solid var(--aqua);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
         }
 
         .publication-card:hover {
-            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 30px rgba(111, 207, 231, 0.3);
             transform: translateY(-3px);
         }
 
@@ -517,9 +585,10 @@
         }
 
         .pub-header h3 {
-            color: #ffffff;
-            font-size: 1.3rem;
-            line-height: 1.4;
+            color: var(--beige-light);
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.5;
             flex: 1;
         }
 
@@ -533,32 +602,34 @@
         .badge {
             padding: 0.4rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-size: 0.7rem;
+            font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .badge-year {
-            background: #5a5a5a;
-            color: #ffffff;
+            background: var(--aqua);
+            color: white;
         }
 
         .pub-authors {
-            color: #d0d0d0;
+            color: var(--text-light);
             margin-bottom: 0.5rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            font-weight: 300;
         }
 
         .pub-authors strong {
-            color: #7dd87d;
+            color: var(--aqua);
+            font-weight: 400;
         }
 
         .pub-journal {
-            color: #7dd87d;
-            font-weight: 600;
+            color: var(--aqua);
+            font-weight: 400;
             margin-bottom: 1rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .pub-actions {
@@ -571,21 +642,21 @@
         .btn-action {
             display: inline-block;
             padding: 0.7rem 1.2rem;
-            background: #3a3a3a;
-            color: #7dd87d;
+            background: var(--grey-darkest);
+            color: var(--aqua);
             text-decoration: none;
             border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: 2px solid #5a5a5a;
+            font-size: 0.85rem;
+            font-weight: 400;
+            border: 1px solid var(--aqua);
             transition: all 0.3s ease;
         }
 
         .btn-action:hover {
-            background: #7dd87d;
-            color: #ffffff;
-            border-color: #7dd87d;
+            background: var(--aqua);
+            color: white;
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(111, 207, 231, 0.4);
         }
 
         /* Related Research */
@@ -596,107 +667,295 @@
         }
 
         .related-paper {
-            background: #4a4a4a;
+            background: linear-gradient(135deg, var(--grey-dark), var(--grey-medium));
             padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #7dd87d;
+            border-radius: 12px;
+            border-left: 3px solid var(--aqua);
             transition: all 0.3s ease;
         }
 
         .related-paper:hover {
-            background: #5a5a5a;
+            background: linear-gradient(135deg, var(--grey-medium), var(--grey-light));
             transform: translateX(5px);
-            box-shadow: 0 4px 15px rgba(125, 216, 125, 0.2);
+            box-shadow: 0 6px 20px rgba(111, 207, 231, 0.3);
         }
 
         .related-paper h4 {
             margin: 0 0 1rem 0;
-            font-size: 1.3rem;
-            line-height: 1.4;
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.5;
         }
 
         .related-paper h4 a {
-            color: #7dd87d;
+            color: var(--aqua);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .related-paper h4 a:hover {
-            color: #9ff09f;
+            color: var(--beige-light);
             text-decoration: underline;
         }
 
         .paper-authors {
-            color: #d0d0d0;
-            font-size: 1rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
             margin: 0.5rem 0;
             font-weight: 300;
         }
 
         .paper-journal {
-            color: #7dd87d;
-            font-size: 0.95rem;
+            color: var(--aqua);
+            font-size: 0.9rem;
             font-style: italic;
             margin: 0.5rem 0 1rem 0;
+            font-weight: 300;
         }
 
         .paper-summary {
-            color: #b0b0b0;
-            font-size: 0.95rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
             line-height: 1.7;
             margin: 0;
             font-weight: 300;
         }
 
-        /* Contact Section */
-        .contact-box {
-            background: linear-gradient(135deg, #7dd87d, #6fcfe7);
-            padding: 3rem;
-            border-radius: 15px;
-            color: white;
+        /* JOURNAL CLUB STYLES */
+        .journal-intro {
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--grey-dark), var(--grey-medium));
+            border-radius: 12px;
         }
 
-        .contact-box h2 {
-            font-size: 2.5rem;
+        .journal-card {
+            background: linear-gradient(135deg, var(--grey-dark), var(--grey-medium));
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--beige-dark);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+        }
+
+        .journal-card h3 {
+            color: var(--aqua);
+            font-size: 1.5rem;
+            font-weight: 300;
             margin-bottom: 1rem;
         }
 
-        .contact-box p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+        .journal-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 300;
         }
 
-        .contact-email {
+        .journal-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .journal-link {
             display: inline-block;
-            background: white;
-            color: #7dd87d;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.8rem;
+            background: var(--aqua);
+            color: white;
             text-decoration: none;
+            border-radius: 6px;
+            font-weight: 400;
             transition: all 0.3s ease;
-            word-break: break-word;
-            max-width: 90%;
         }
 
-        .contact-email:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        .journal-link:hover {
+            background: var(--beige-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(196, 181, 160, 0.4);
+        }
+
+        /* FORM PARTICIPATE - COME IMMAGINE */
+        .participate-form-section {
+            background: linear-gradient(135deg, var(--aqua), #5ab8d1);
+            padding: 3rem;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            margin-top: 3rem;
+        }
+
+        .participate-form-section h2 {
+            font-size: 2rem;
+            font-weight: 200;
+            margin-bottom: 1rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .participate-form-section > p {
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.9rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            background: white;
+            color: var(--grey-darkest);
+            font-size: 0.95rem;
+            font-weight: 300;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-top: 4px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            font-weight: 300;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: white;
+            color: var(--aqua);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: center;
+        }
+
+        .submit-btn:hover {
+            background: var(--beige-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
         /* Footer */
         footer {
-            background: var(--dark-bg);
-            color: white;
+            background: var(--grey-darkest);
+            color: var(--beige-light);
             padding: 3rem 2rem;
             text-align: center;
+            font-weight: 300;
+            border-top: 1px solid var(--grey-light);
         }
 
         footer p {
-            color: #aaa;
+            color: var(--text-light);
+        }
+
+        /* EASTER EGG */
+        .easter-egg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(135deg, var(--grey-darkest), var(--grey-dark));
+            border: 2px solid var(--aqua);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            z-index: 10000;
+            text-align: center;
+            color: var(--beige-light);
+            max-width: 400px;
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .easter-egg.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .easter-egg h2 {
+            font-size: 2rem;
+            font-weight: 200;
+            margin-bottom: 1rem;
+            color: var(--aqua);
+        }
+
+        .easter-egg p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .easter-egg-close {
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background: var(--aqua);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .easter-egg-close:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(111, 207, 231, 0.4);
         }
 
         /* Page Visibility */
@@ -706,7 +965,7 @@
 
         .page.active {
             display: block;
-            animation: fadeIn 0.5s ease-in;
+            animation: fadeIn 0.6s ease-in;
         }
 
         @keyframes fadeIn {
@@ -730,13 +989,6 @@
         @media (max-width: 768px) {
             .mobile-toggle {
                 display: block;
-                background: none;
-                border: 2px solid #7dd87d;
-                color: #7dd87d;
-                font-size: 1.5rem;
-                padding: 0.5rem 1rem;
-                border-radius: 4px;
-                cursor: pointer;
             }
 
             nav ul {
@@ -746,10 +998,10 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: #2a2a2a;
+                background: linear-gradient(135deg, var(--grey-darkest), #1a1a1a);
                 padding: 1rem;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-                border-top: 2px solid #7dd87d;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                border-top: 2px solid var(--aqua);
                 z-index: 1000;
                 gap: 0;
             }
@@ -763,16 +1015,16 @@
             }
 
             nav ul a {
-                color: #ffffff;
+                color: var(--beige-light);
                 display: block;
                 padding: 1rem;
-                border-bottom: 1px solid #3a3a3a;
+                border-bottom: 1px solid rgba(196, 181, 160, 0.1);
             }
 
             nav ul a:hover,
             nav ul a.active {
-                background: #7dd87d;
-                color: #ffffff;
+                background: var(--aqua);
+                color: white;
             }
 
             .video-divider {
@@ -781,47 +1033,26 @@
 
             #research .video-divider,
             #publications .video-divider,
-            #participate .video-divider {
+            #participate .video-divider,
+            #journal .video-divider {
                 height: 18vh;
-            }
-
-            .logo-center {
-                padding: 40px 20px;
             }
 
             .logo-center img {
                 width: 280px;
-                max-width: 90%;
             }
 
             .team-member.pi {
                 flex-direction: column;
                 text-align: center;
-                padding: 30px 20px;
-            }
-
-            .team-member.pi img {
-                width: 150px;
-                height: 150px;
-            }
-
-            .team-section {
-                padding: 0 20px;
-                margin: 40px auto;
             }
 
             .team-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .alumni-section {
-                padding: 0 20px;
             }
 
             .alumni-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
             }
 
             .research-grid,
@@ -829,17 +1060,6 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Research inline images su mobile */
-            .research-text-content {
-                font-size: 1rem;
-                text-align: left;
-            }
-            
-            .research-text-content h3 {
-                font-size: 1.3rem;
-                margin: 2rem 0 1rem 0;
-            }
-            
             .research-inline-image,
             .research-inline-image:nth-of-type(2n) {
                 float: none;
@@ -848,7 +1068,6 @@
                 margin: 1.5rem 0;
             }
 
-            /* Publications filters su mobile */
             .publication-filters {
                 flex-direction: column;
             }
@@ -857,45 +1076,14 @@
             .filter-group input[type="text"] {
                 min-width: 100%;
             }
-            
-            .pub-header {
+
+            .participate-form-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .journal-meta {
                 flex-direction: column;
-            }
-            
-            .pub-badges {
-                justify-content: flex-start;
-            }
-            
-            .pub-actions {
-                flex-direction: column;
-            }
-            
-            .btn-action {
-                text-align: center;
-            }
-
-            .related-paper {
-                padding: 1.5rem;
-            }
-            
-            .related-paper h4 {
-                font-size: 1.1rem;
-            }
-
-            /* FIX EMAIL PARTICIPATE SU MOBILE */
-            .contact-email {
-                font-size: 0.9rem;
-                padding: 0.8rem 1.5rem;
-                max-width: 95%;
-                overflow-wrap: break-word;
-            }
-
-            .contact-box h2 {
-                font-size: 1.8rem;
-            }
-
-            .contact-box p {
-                font-size: 1rem;
+                gap: 0.8rem;
             }
         }
 
@@ -904,27 +1092,38 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Email ancora più piccola su schermi molto piccoli */
-            .contact-email {
-                font-size: 0.8rem;
-                padding: 0.7rem 1rem;
+            .section-title {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
 
+<!-- EASTER EGG -->
+<div class="easter-egg" id="easterEgg">
+    <h2>🎉 Hai trovato l'Easter Egg!</h2>
+    <p>Congratulazioni! Sei l'unico a conoscere questo segreto nascosto nel sito del Dynamic Perception Lab.</p>
+    <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">Triplo click sul logo per attivare la magia! ✨</p>
+    <button class="easter-egg-close" onclick="closeEasterEgg()">Chiudi</button>
+</div>
+
 <!-- Header -->
 <header>
     <div class="header-content">
-        <div class="logo-text">The Dynamic Perception Lab</div>
-        <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
+        <div class="logo-text" id="logoText" onclick="easterEggClick()">The Dynamic Perception Lab</div>
+        <button class="mobile-toggle" id="mobileToggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <nav>
             <ul id="menu">
                 <li><a href="#" onclick="showPage('home', this); return false;" class="active">HOME</a></li>
                 <li><a href="#" onclick="showPage('people', this); return false;">PEOPLE</a></li>
                 <li><a href="#" onclick="showPage('research', this); return false;">RESEARCH</a></li>
                 <li><a href="#" onclick="showPage('publications', this); return false;">PUBLICATIONS</a></li>
+                <li><a href="#" onclick="showPage('journal', this); return false;">JOURNAL CLUB</a></li>
                 <li><a href="#" onclick="showPage('participate', this); return false;">PARTICIPATE</a></li>
             </ul>
         </nav>
@@ -945,7 +1144,7 @@
     
     <div class="container">
         <section class="section">
-            <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0;">
+            <p style="font-size: 1.15rem; line-height: 1.9;">
                 <strong>Our interaction with the physical world feels effortless, but it is anything but simple.</strong> From packing fragile groceries to stacking glassware or navigating a cluttered cabinet, every action we take depends on rapid predictions about stability, weight, balance, and motion. These predictions are generated continuously, online, and with remarkable precision—often without entering awareness. Seeing the world is only the first step; understanding how it will behave is what allows us to act.
             </p>
         </section>
@@ -953,9 +1152,9 @@
         <section class="section">
             <h2 class="section-title">Dynamic Perception in Action</h2>
             <div class="image-grid">
-                <img src="pool-physics.png" alt="Physical prediction in pool">
-                <img src="car-balance.jpg" alt="Stability and balance">
-                <img src="water-dynamics.jpg" alt="Fluid dynamics"> 
+                <img src="researchimg1.png" alt="Physical prediction in pool">
+                <img src="researchimg2.png" alt="Stability and balance">
+                <img src="researchimg1.jpg" alt="Fluid dynamics"> 
             </div>
         </section>
     </div>
@@ -1093,7 +1292,7 @@
 
         <section class="section">
             <h2 class="section-title">Join Our Team</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0;">
+            <p style="font-size: 1.05rem; line-height: 1.9;">
                 We're seeking brilliant minds passionate about understanding how perception shapes our physical reality. If you're fascinated by the intersection of vision, cognition, and intuitive physics, we want to hear from you. Check our opportunities or reach out directly to explore collaboration possibilities.
             </p>
         </section>
@@ -1155,7 +1354,7 @@
 
         <section class="section" style="margin-top: 4rem;">
             <h2 class="section-title">Related Research in the Field</h2>
-            <p style="font-size: 1.05rem; line-height: 1.9; color: #d0d0d0; margin-bottom: 2rem; font-weight: 300;">
+            <p style="font-size: 1rem; line-height: 1.9; margin-bottom: 2rem;">
                 The study of intuitive physics draws on insights from multiple disciplines. Below are key papers that have shaped our understanding of how the mind represents and reasons about physical interactions:
             </p>
             
@@ -1245,8 +1444,13 @@
     </div>
 </div>
 
-
-<!-- PUBLICATIONS PAGE - TUTTI I 26 ARTICOLI -->
+<!-- PUBLICATIONS PAGE -->
+<div id="publications" class="page">
+    <section class="video-divider">
+        <video autoplay loop muted playsinline>
+            <source src="publications.mp4" type="video/mp4">
+        </video>
+    </section>
 <div id="publications" class="page">
     <section class="video-divider">
         <video autoplay loop muted playsinline>
@@ -1258,7 +1462,7 @@
         <section class="section">
             <h2 class="section-title">Publications</h2>
             
-            <p style="font-size: 1.05rem; line-height: 1.9; color: #d0d0d0; margin-bottom: 3rem; text-align: justify;">
+            <p style="font-size: 1.05rem; line-height: 1.9; margin-bottom: 3rem; text-align: justify;">
                 This page collects publications related to research on intuitive physics and physical reasoning. The work presented here investigates how humans perceive and predict physical events, form expectations about object interactions, and use physical knowledge to guide action in everyday environments. Using primarily behavioral and cognitive approaches, these studies examine the interaction between perceptual input, prior experience, and predictive mechanisms in shaping physical understanding. Together, these publications contribute to a broader account of how intuitive knowledge of the physical world is structured, learned, and applied across different tasks and contexts.
             </p>
             
@@ -2046,9 +2250,75 @@
     </div>
 </div>
 
-<!-- PARTICIPATE PAGE CON VIDEO E ICONE PNG -->
+<!-- JOURNAL CLUB PAGE - NUOVA! -->
+<div id="journal" class="page">
+    <section class="video-divider">
+        <video autoplay loop muted playsinline>
+            <source src="hero-video.mp4" type="video/mp4">
+        </video>
+    </section>
+    
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Journal Club</h2>
+            
+            <div class="journal-intro">
+                <p style="font-size: 1.15rem; line-height: 1.8;">
+                    Welcome to our Journal Club! Here we discuss cutting-edge research papers related to intuitive physics, visual perception, and cognitive neuroscience. Join us for insightful discussions and stay updated with the latest findings in our field.
+                </p>
+            </div>
+
+            <!-- Esempio di articoli Journal Club -->
+            <div class="journal-card">
+                <h3>Understanding Physical Reasoning Through Neural Networks</h3>
+                <div class="journal-meta">
+                    <span>📅 Date: February 15, 2026</span>
+                    <span>🕐 Time: 15:00 UTC</span>
+                    <span>👤 Presenter: Dr. Jason Fischer</span>
+                </div>
+                <p style="line-height: 1.8; margin-top: 1rem;">
+                    In this session, we'll explore recent advances in modeling intuitive physics using deep learning architectures. We'll discuss how neural networks can capture physical reasoning and what this tells us about human cognition.
+                </p>
+                <a href="#" class="journal-link" onclick="alert('Link meeting verrà pubblicato qui!'); return false;">
+                    🔗 Join Online Meeting
+                </a>
+            </div>
+
+            <div class="journal-card">
+                <h3>Visual Dynamics in Real-World Environments</h3>
+                <div class="journal-meta">
+                    <span>📅 Date: March 1, 2026</span>
+                    <span>🕐 Time: 14:30 UTC</span>
+                    <span>👤 Presenter: Giuliana Bucci-Mansilla</span>
+                </div>
+                <p style="line-height: 1.8; margin-top: 1rem;">
+                    This discussion will focus on how visual systems process dynamic information in complex, ecologically valid settings. We'll examine methodologies for studying perception in naturalistic contexts.
+                </p>
+                <a href="#" class="journal-link" onclick="alert('Link meeting verrà pubblicato qui!'); return false;">
+                    🔗 Join Online Meeting
+                </a>
+            </div>
+
+            <div class="journal-card">
+                <h3>Comparative Cognition: Physics Understanding Across Species</h3>
+                <div class="journal-meta">
+                    <span>📅 Date: March 15, 2026</span>
+                    <span>🕐 Time: 16:00 UTC</span>
+                    <span>👤 Presenter: Alex Mitko</span>
+                </div>
+                <p style="line-height: 1.8; margin-top: 1rem;">
+                    An exploration of physical reasoning capabilities in non-human primates and other species. What can comparative studies tell us about the evolution of intuitive physics?
+                </p>
+                <a href="#" class="journal-link" onclick="alert('Link meeting verrà pubblicato qui!'); return false;">
+                    🔗 Join Online Meeting
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- PARTICIPATE PAGE CON FORM -->
 <div id="participate" class="page">
-    <!-- VIDEO BANNER -->
     <section class="video-divider">
         <video autoplay loop muted playsinline>
             <source src="partecipatevideo.mp4" type="video/mp4">
@@ -2058,11 +2328,11 @@
     <div class="container">
         <section class="section">
             <h2 class="section-title">Participate in Our Research</h2>
-            <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 3rem; color: #e0e0e0;">
-                Your participation directly advances our understanding of one of the mind's most fascinating capabilities, how we effortlessly navigate and predict the physical world around us.
+            <p style="font-size: 1.15rem; line-height: 1.9; margin-bottom: 2rem;">
+                Your participation directly advances our understanding of one of the mind's most fascinating capabilities—how we effortlessly navigate and predict the physical world around us.
             </p>
 
-            <div class="research-grid">
+            <div class="research-grid" style="margin-bottom: 3rem;">
                 <div class="research-card">
                     <div class="research-icon">
                         <img src="partecipateimg.png" alt="Why Participate">
@@ -2087,23 +2357,72 @@
             </div>
         </section>
 
-        <section class="section">
-            <div class="contact-box">
-                <h2>Get Involved</h2>
-                <p>Ready to contribute to groundbreaking research?</p>
-                <a href="mailto:participate@dynamicperceptionlab.com" class="contact-email">participate@dynamicperceptionlab.com</a>
-            </div>
+        <!-- FORM COME NELL'IMMAGINE -->
+        <section class="participate-form-section">
+            <h2>If you are interested in these projects and/or working with us,</h2>
+            <p>please visit our Projects' section and send us an email.</p>
+            
+            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="consent1" name="consent1" required>
+                    <label for="consent1">By sending my data, I consent to Dynamic Perception Lab treating my data, according to the General Data Protection Regulation and in accordance with the Dynamic Perception Lab Privacy Policy.</label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="consent2" name="consent2">
+                    <label for="consent2">Yes, I agree to be kept up to date by sending me Dynamic Perception Lab news, events or offers in accordance with its Privacy Policy.</label>
+                </div>
+                
+                <button type="submit" class="submit-btn">send</button>
+            </form>
         </section>
     </div>
 </div>
 
-<!-- Footer -->
 <footer>
     <p>&copy; 2026 The Dynamic Perception Lab. All rights reserved.</p>
     <p>University of Coimbra, Portugal</p>
 </footer>
 
 <script>
+    // EASTER EGG - Triplo Click sul Logo
+    let easterEggClicks = 0;
+    let easterEggTimeout;
+
+    function easterEggClick() {
+        easterEggClicks++;
+        
+        clearTimeout(easterEggTimeout);
+        
+        if (easterEggClicks === 3) {
+            document.getElementById('easterEgg').classList.add('show');
+            easterEggClicks = 0;
+        }
+        
+        easterEggTimeout = setTimeout(() => {
+            easterEggClicks = 0;
+        }, 500);
+    }
+
+    function closeEasterEgg() {
+        document.getElementById('easterEgg').classList.remove('show');
+    }
+
     function showPage(pageId, element) {
         document.querySelectorAll('.page').forEach(page => {
             page.classList.remove('active');
@@ -2124,15 +2443,24 @@
         window.scrollTo({top: 0, behavior: 'smooth'});
         
         const menu = document.getElementById('menu');
-        if (menu) {
+        const toggle = document.getElementById('mobileToggle');
+        if (menu && menu.classList.contains('active')) {
             menu.classList.remove('active');
+            if (toggle) {
+                toggle.classList.remove('active');
+            }
         }
     }
 
     function toggleMenu() {
         const menu = document.getElementById('menu');
+        const toggle = document.getElementById('mobileToggle');
+        
         if (menu) {
             menu.classList.toggle('active');
+        }
+        if (toggle) {
+            toggle.classList.toggle('active');
         }
     }
 
@@ -2159,11 +2487,34 @@
         });
         
         const noResults = document.getElementById('noResults');
-        if (visibleCount === 0) {
-            noResults.style.display = 'block';
-        } else {
-            noResults.style.display = 'none';
+        if (noResults) {
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
         }
+    }
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(event.target);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            message: formData.get('message'),
+            consent1: formData.get('consent1') ? 'yes' : 'no',
+            consent2: formData.get('consent2') ? 'yes' : 'no'
+        };
+        
+        console.log('Form submitted:', data);
+        
+        alert('Thank you for your interest! Your message has been sent.\n\nIn a production environment, this would send the data to your server.');
+        
+        event.target.reset();
+        
+        return false;
     }
 </script>
 
